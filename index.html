@@ -229,6 +229,16 @@ button{font-family:inherit;}
 .name-gate-list button{font-size:14px;font-weight:600;border-radius:10px;padding:12px 8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);}
 .name-gate-skip{display:block;width:100%;margin-top:14px;font-size:12.5px;color:var(--ink-faint);background:none;border:none;text-decoration:underline;padding:4px;}
 
+/* move records between screens */
+.move-sheet textarea{width:100%;font-family:ui-monospace,monospace;font-size:11px;border:1px solid var(--line);border-radius:9px;padding:8px;background:var(--bg);color:var(--ink);height:90px;resize:none;}
+.move-sec{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:14px;}
+.move-sec h4{margin:0 0 6px;font-size:14px;}
+.move-sec p{margin:0 0 8px;font-size:12.5px;line-height:1.55;color:var(--ink-soft);}
+.move-row{display:flex;gap:8px;align-items:center;margin:8px 0;flex-wrap:wrap;}
+.move-row button{font-size:13px;font-weight:600;border-radius:9px;padding:9px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);}
+.move-row button.primary{background:var(--azulejo);border-color:var(--azulejo);color:#fff;}
+.move-msg{font-size:12.5px;line-height:1.5;color:var(--good);min-height:18px;}
+.move-msg.err{color:var(--coral);}
 /* print / PDF export */
 .pdf-panel{display:none;position:fixed;left:12px;right:12px;bottom:16px;z-index:80;max-width:536px;margin:0 auto;background:var(--surface);color:var(--ink);border:1px solid var(--azulejo);border-radius:14px;padding:14px 16px;font-size:13.5px;line-height:1.55;box-shadow:0 8px 30px rgba(0,0,0,.25);}
 .pdf-panel-go{display:block;width:100%;margin-top:10px;background:var(--azulejo);color:#fff;border:none;border-radius:10px;padding:12px;font-size:14.5px;font-weight:700;}
@@ -281,6 +291,7 @@ button{font-family:inherit;}
 <div class="wrap">
   <div id="banner"></div>
   <button class="print-btn" data-print-all>📄 전체 일정 PDF로 저장(인쇄)</button>
+  <button class="print-btn move-btn" data-move-open>📦 기록 옮기기 (사진·제목·메모를 다른 화면으로)</button>
   <div id="pretripCard"></div>
   <div id="midtripCard"></div>
   <div class="section-label" id="scheduleLabel">전체 일정</div>
@@ -1102,12 +1113,15 @@ function openPhotoDB(){
   if(photoDbPromise) return photoDbPromise;
   photoDbPromise = new Promise((resolve,reject)=>{
     if(!window.indexedDB){ reject(new Error("no-idb")); return; }
-    const req = indexedDB.open(PHOTO_DB_NAME, 2);
+    const req = indexedDB.open(PHOTO_DB_NAME, 3);
     req.onupgradeneeded = (e)=>{
       const db = e.target.result;
       if(!db.objectStoreNames.contains(PHOTO_STORE)){
         const store = db.createObjectStore(PHOTO_STORE, {keyPath:"id", autoIncrement:true});
         store.createIndex("date","date",{unique:false});
+      }
+      if(!db.objectStoreNames.contains("moveParts")){
+        db.createObjectStore("moveParts", {keyPath:"key"});
       }
       if(!db.objectStoreNames.contains(CUSTOM_RES_STORE)){
         const store2 = db.createObjectStore(CUSTOM_RES_STORE, {keyPath:"id", autoIncrement:true});
@@ -1573,6 +1587,168 @@ document.addEventListener("click", (e)=>{
   if(e.target.closest("[data-pdf-view-close]")){ const v=document.getElementById("pdfViewer"); if(v) v.style.display="none"; showPdfReady(); return; }
   if(e.target.closest("[data-pdf-close]")){ pdfPanelClose(); return; }
 });
+
+// ===== 기록 옮기기 =====
+// 앱 안 화면 ↔ 크롬 화면은 저장 공간이 따로라서, 기록을 '옮기기 코드'(글자)로 바꿔 복사→붙여넣기로 옮김
+const MOVE_CHUNK = 300000;
+let moveParts = [], moveIdx = 0;
+function idbGetAll(store){
+  return openPhotoDB().then(db=>new Promise((res,rej)=>{
+    const r = db.transaction(store,"readonly").objectStore(store).getAll();
+    r.onsuccess=()=>res(r.result||[]); r.onerror=()=>rej(r.error);
+  }));
+}
+function idbPut(store, val){
+  return openPhotoDB().then(db=>new Promise((res,rej)=>{
+    const tx = db.transaction(store,"readwrite"); tx.objectStore(store).put(val);
+    tx.oncomplete=()=>res(); tx.onerror=()=>rej(tx.error);
+  }));
+}
+function idbClear(store){
+  return openPhotoDB().then(db=>new Promise((res,rej)=>{
+    const tx = db.transaction(store,"readwrite"); tx.objectStore(store).clear();
+    tx.oncomplete=()=>res(); tx.onerror=()=>rej(tx.error);
+  }));
+}
+function blobToDataURL(b){ return new Promise((res,rej)=>{ const fr=new FileReader(); fr.onload=()=>res(fr.result); fr.onerror=rej; fr.readAsDataURL(b); }); }
+async function dataURLToBlob(u){ return (await fetch(u)).blob(); }
+function moveModal(){
+  let m = document.getElementById("moveModal");
+  if(m) return m;
+  m = document.createElement("div"); m.id="moveModal"; m.className="res-modal";
+  m.innerHTML = `<div class="res-sheet"><div class="res-sheet-head"><div class="res-sheet-head-text"><div class="res-sheet-kind">기록 옮기기</div><div class="res-sheet-title">사진·제목·메모·체크·추가 예약</div></div><button class="close" data-move-close>닫기</button></div>
+  <div class="res-body"><div class="res-body-pad move-sheet">
+    <div class="move-sec"><h4>① 보내기 — 기록이 있는 화면에서</h4>
+      <p>'코드 만들기'를 누르고, 코드를 <b>1번부터 차례로</b> 복사해서 받을 화면의 ② 칸에 붙여넣으세요. 사진이 많으면 코드가 여러 개로 나뉘어요.</p>
+      <div class="move-row"><button class="primary" data-move-make>코드 만들기</button></div>
+      <div id="moveOut" style="display:none">
+        <div class="move-row"><button data-move-prev>◀</button><b id="moveIdxLabel"></b><button data-move-next>▶</button><button class="primary" data-move-copy>📋 이 코드 복사</button></div>
+        <textarea id="moveOutText" readonly></textarea>
+      </div>
+      <div class="move-msg" id="moveOutMsg"></div>
+    </div>
+    <div class="move-sec"><h4>② 받기 — 기록을 옮겨 올 화면에서</h4>
+      <p>아래 칸을 길게 눌러 <b>붙여넣기</b> 하세요. 코드가 여러 개면 하나씩 붙여넣으면 돼요(순서 상관없음). 다 모이면 자동으로 옮겨져요. 이미 있는 기록은 지워지지 않아요.</p>
+      <textarea id="moveInText" placeholder="여기에 옮기기 코드 붙여넣기"></textarea>
+      <div class="move-row"><button class="primary" data-move-import>가져오기</button></div>
+      <div class="move-msg" id="moveInMsg"></div>
+    </div>
+  </div></div></div>`;
+  document.body.appendChild(m);
+  return m;
+}
+function moveMsg(id, text, err){ const el=document.getElementById(id); el.textContent=text; el.classList.toggle("err", !!err); }
+function showMovePart(){
+  document.getElementById("moveOut").style.display = "block";
+  document.getElementById("moveIdxLabel").textContent = `코드 ${moveIdx+1} / ${moveParts.length}`;
+  document.getElementById("moveOutText").value = moveParts[moveIdx];
+}
+async function makeMoveCode(){
+  moveMsg("moveOutMsg","코드 만드는 중… 사진이 많으면 조금 걸려요.");
+  try{
+    document.querySelectorAll("textarea[data-memo]").forEach(saveMemoNow);
+    const photos = await idbGetAll(PHOTO_STORE).catch(()=>[]);
+    const res = await idbGetAll(CUSTOM_RES_STORE).catch(()=>[]);
+    const outPhotos = [];
+    for(let i=0;i<photos.length;i++){
+      moveMsg("moveOutMsg",`사진 준비 중… (${i+1}/${photos.length})`);
+      const small = await resizeImageFile(photos[i].blob, 1280);
+      outPhotos.push({date:photos[i].date, title:photos[i].title||"", addedAt:photos[i].addedAt||0, data: await blobToDataURL(small)});
+    }
+    const outRes = [];
+    for(const r of res){
+      const o = {date:r.date, kind:r.kind, title:r.title, time:r.time, addr:r.addr, ref:r.ref, addedAt:r.addedAt||0, fileType:r.fileType||""};
+      if(r.fileBlob) o.fileData = await blobToDataURL(r.fileBlob);
+      outRes.push(o);
+    }
+    const json = JSON.stringify({v:1, notes:DAY_NOTES, checks:CHECK_STATE, photos:outPhotos, res:outRes});
+    const id = Math.random().toString(36).slice(2,8);
+    const n = Math.max(1, Math.ceil(json.length / MOVE_CHUNK));
+    moveParts = [];
+    for(let i=0;i<n;i++) moveParts.push(`HGT1|${id}|${i+1}|${n}|` + json.slice(i*MOVE_CHUNK,(i+1)*MOVE_CHUNK));
+    moveIdx = 0; showMovePart();
+    const memoCount = Object.values(DAY_NOTES).filter(v=>v&&v.trim()).length;
+    moveMsg("moveOutMsg",`준비 완료: 메모 ${memoCount}개 · 사진 ${outPhotos.length}장 · 추가 예약 ${outRes.length}개 → 코드 ${n}개`);
+  }catch(e){ moveMsg("moveOutMsg","코드를 만들지 못했어요. 다시 눌러 주세요.", true); }
+}
+async function copyMovePart(){
+  const ta = document.getElementById("moveOutText");
+  const text = ta.value;
+  let ok = false;
+  try{ if(navigator.clipboard && navigator.clipboard.writeText){ await navigator.clipboard.writeText(text); ok = true; } }catch(e){}
+  if(!ok){ try{ ta.removeAttribute("readonly"); ta.focus(); ta.select(); ok = document.execCommand("copy"); ta.setAttribute("readonly",""); }catch(e){} }
+  moveMsg("moveOutMsg", ok ? `코드 ${moveIdx+1}/${moveParts.length} 복사됨 ✓ — 받을 화면의 ② 칸에 붙여넣으세요.` : "자동 복사가 막혔어요. 위 칸을 길게 눌러 '전체 선택' → '복사' 해 주세요.", !ok);
+}
+let moveImporting = false;
+async function importMoveText(){
+  if(moveImporting) return;
+  moveImporting = true;
+  try{ await importMoveTextInner(); } finally { moveImporting = false; }
+}
+async function importMoveTextInner(){
+  const raw = (document.getElementById("moveInText").value||"").trim();
+  if(!raw){ moveMsg("moveInMsg","붙여넣은 코드가 없어요.", true); return; }
+  const m = raw.match(/^HGT1\|([a-z0-9]+)\|(\d+)\|(\d+)\|([\s\S]*)$/);
+  if(!m){ moveMsg("moveInMsg","옮기기 코드가 아니에요. 코드를 처음부터 끝까지 다 복사했는지 확인해 주세요.", true); return; }
+  const [, id, iStr, nStr, body] = m; const i = +iStr, n = +nStr;
+  try{
+    await idbPut("moveParts", {key:id+"_"+i, id, i, n, body});
+    const all = (await idbGetAll("moveParts")).filter(p=>p.id===id);
+    document.getElementById("moveInText").value = "";
+    if(all.length < n){
+      const have = all.map(p=>p.i).sort((a,b)=>a-b);
+      moveMsg("moveInMsg",`코드 ${i}/${n} 받음 ✓ (지금까지 ${have.join(", ")}번) — 나머지 코드도 붙여넣어 주세요.`);
+      return;
+    }
+    moveMsg("moveInMsg","모두 받았어요. 옮기는 중…");
+    const json = all.sort((a,b)=>a.i-b.i).map(p=>p.body).join("");
+    const data = JSON.parse(json);
+    // 메모: 비어 있으면 채우고, 둘 다 있으면 뒤에 덧붙임
+    let memoN = 0;
+    for(const [d,v] of Object.entries(data.notes||{})){
+      if(!v || !v.trim()) continue;
+      const cur = DAY_NOTES[d] || "";
+      if(cur.includes(v)) continue;
+      DAY_NOTES[d] = cur.trim() ? cur + "\n" + v : v; memoN++;
+    }
+    saveJSON("dayNotes", DAY_NOTES);
+    for(const [k,v] of Object.entries(data.checks||{})){ if(v && v.done && !(CHECK_STATE[k]&&CHECK_STATE[k].done)) CHECK_STATE[k] = v; }
+    saveJSON("checkState", CHECK_STATE);
+    // 사진: 같은 날짜·시각·제목이 이미 있으면 건너뜀
+    const exist = new Set((await idbGetAll(PHOTO_STORE)).map(p=>p.date+"|"+(p.addedAt||0)+"|"+(p.title||"")));
+    let photoN = 0;
+    for(const p of (data.photos||[])){
+      const key = p.date+"|"+(p.addedAt||0)+"|"+(p.title||"");
+      if(exist.has(key)) continue;
+      const blob = await dataURLToBlob(p.data);
+      await idbPut(PHOTO_STORE, {date:p.date, blob, title:p.title||"", addedAt:p.addedAt||Date.now()});
+      exist.add(key); photoN++;
+    }
+    const existRes = new Set((await idbGetAll(CUSTOM_RES_STORE)).map(r=>r.date+"|"+(r.addedAt||0)+"|"+r.title));
+    let resN = 0;
+    for(const r of (data.res||[])){
+      const key = r.date+"|"+(r.addedAt||0)+"|"+r.title;
+      if(existRes.has(key)) continue;
+      const entry = {date:r.date, kind:r.kind, title:r.title, time:r.time, addr:r.addr, ref:r.ref, addedAt:r.addedAt||Date.now()};
+      if(r.fileData){ entry.fileBlob = await dataURLToBlob(r.fileData); entry.fileType = r.fileType||entry.fileBlob.type; }
+      await idbPut(CUSTOM_RES_STORE, entry);
+      existRes.add(key); resN++;
+    }
+    await idbClear("moveParts");
+    renderPretrip(); renderMidtrip(); refreshSchedule();
+    moveMsg("moveInMsg",`옮기기 완료 ✓ 메모 ${memoN}개 · 사진 ${photoN}장 · 추가 예약 ${resN}개를 가져왔어요.`);
+  }catch(e){ moveMsg("moveInMsg","가져오지 못했어요. 코드가 잘렸을 수 있어요 — 그 번호 코드를 다시 복사해 붙여넣어 주세요.", true); }
+}
+document.addEventListener("click",(e)=>{
+  if(e.target.closest("[data-move-open]")){ moveModal().classList.add("open"); return; }
+  if(e.target.closest("[data-move-close]") || e.target.id==="moveModal"){ const m=document.getElementById("moveModal"); if(m) m.classList.remove("open"); return; }
+  if(e.target.closest("[data-move-make]")){ makeMoveCode(); return; }
+  if(e.target.closest("[data-move-copy]")){ copyMovePart(); return; }
+  if(e.target.closest("[data-move-prev]")){ if(moveIdx>0){ moveIdx--; showMovePart(); } return; }
+  if(e.target.closest("[data-move-next]")){ if(moveIdx<moveParts.length-1){ moveIdx++; showMovePart(); } return; }
+  if(e.target.closest("[data-move-import]")){ importMoveText(); return; }
+});
+document.addEventListener("input",(e)=>{ if(e.target.id==="moveInText" && /^HGT1\|/.test(e.target.value.trim())) setTimeout(importMoveText, 50); });
 
 function refreshSchedule(){
   const focusDate = renderDays();
