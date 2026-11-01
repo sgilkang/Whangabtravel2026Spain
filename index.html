@@ -1,0 +1,1613 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><title>환갑여행 동행수첩</title><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>환갑여행 동행수첩</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#eef1ec;
+  --surface:#ffffff;
+  --surface-2:#e4e8e1;
+  --ink:#16243a;
+  --ink-soft:#56657a;
+  --ink-faint:#8a96a6;
+  --line:#d7dcd3;
+  --azulejo:#2f6f82;
+  --azulejo-soft:#e4eff1;
+  --gold:#a9781f;
+  --gold-soft:#f6ecd4;
+  --coral:#b4502f;
+  --coral-soft:#f7e6df;
+  --good:#3f7d57;
+  --good-soft:#e5f0e8;
+  --shadow:0 1px 2px rgba(22,36,58,.06), 0 6px 16px rgba(22,36,58,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11161f;
+    --surface:#1a212c;
+    --surface-2:#212a37;
+    --ink:#e9edf3;
+    --ink-soft:#aab4c4;
+    --ink-faint:#707d90;
+    --line:#2b3442;
+    --azulejo:#6cb2c4;
+    --azulejo-soft:#1c3338;
+    --gold:#d9b35c;
+    --gold-soft:#332a14;
+    --coral:#e2906f;
+    --coral-soft:#3a241c;
+    --good:#7fcb9a;
+    --good-soft:#1b3326;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 20px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11161f;
+  --surface:#1a212c;
+  --surface-2:#212a37;
+  --ink:#e9edf3;
+  --ink-soft:#aab4c4;
+  --ink-faint:#707d90;
+  --line:#2b3442;
+  --azulejo:#6cb2c4;
+  --azulejo-soft:#1c3338;
+  --gold:#d9b35c;
+  --gold-soft:#332a14;
+  --coral:#e2906f;
+  --coral-soft:#3a241c;
+  --good:#7fcb9a;
+  --good-soft:#1b3326;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 20px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:28px;
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums;}
+a{color:var(--azulejo);}
+button{font-family:inherit;}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px;}
+
+.topbar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);}
+.topbar-inner{max-width:560px;margin:0 auto;padding:14px 14px 12px;}
+.topbar-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;}
+.trip-title{font-weight:700;font-size:17px;letter-spacing:-.2px;}
+.trip-sub{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+.dday-chip{
+  font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;
+  background:var(--azulejo);color:#fff;border-radius:999px;padding:5px 11px;
+  white-space:nowrap;
+}
+
+.section-label{
+  font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--ink-faint);
+  text-transform:uppercase;margin:18px 2px 8px;
+}
+.section-label:first-child{margin-top:14px;}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden;}
+.card-pad{padding:14px 16px;}
+
+.hero{
+  background:linear-gradient(135deg,var(--azulejo),#1f5566);
+  color:#fff;border-radius:16px;padding:20px 18px;margin:14px 0 4px;
+  box-shadow:var(--shadow);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .hero{background:linear-gradient(135deg,#1c3338,#122026);}
+}
+:root[data-theme="dark"] .hero{background:linear-gradient(135deg,#1c3338,#122026);}
+.hero-eyebrow{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.8;}
+.hero-dday{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:34px;margin:4px 0 2px;letter-spacing:-1px;}
+.hero-date{font-size:13px;opacity:.9;}
+.hero-note{margin-top:8px;font-size:12.5px;line-height:1.5;opacity:.95;}
+
+/* day card */
+.daycard{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin-bottom:12px;}
+.daycard.is-today{border-color:var(--azulejo);box-shadow:0 0 0 2px var(--azulejo-soft), var(--shadow);}
+.daystub{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;}
+.daystub-date{text-align:center;min-width:46px;}
+.daystub-dow{font-size:10px;color:var(--ink-faint);font-weight:600;}
+.daystub-dom{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:20px;line-height:1.1;}
+.daystub-mid{flex:1;min-width:0;}
+.daystub-region{font-weight:600;font-size:14.5px;}
+.daystub-trans{font-size:12px;color:var(--ink-soft);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.daystub-pop{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);flex-shrink:0;}
+.daystub-chev{color:var(--ink-faint);font-size:13px;flex-shrink:0;transition:transform .15s;}
+.daystub-wx{flex-shrink:0;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;text-decoration:none;background:var(--azulejo-soft);border:1px solid var(--line);}
+.wx-row{display:flex;flex-wrap:wrap;gap:6px;}
+.wx-chip{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;border-radius:999px;padding:6px 11px;border:1px solid var(--line);background:var(--azulejo-soft);color:var(--azulejo);text-decoration:none;}
+.daycard.open .daystub-chev{transform:rotate(90deg);}
+.daybody{display:none;padding:0 16px 16px;border-top:1px dashed var(--line);}
+.daycard.open .daybody{display:block;}
+.daybody-row{margin-top:12px;}
+.row-label{font-size:11px;font-weight:600;color:var(--ink-faint);letter-spacing:.04em;margin-bottom:5px;}
+.pillist{display:flex;flex-direction:column;gap:6px;}
+.pill-item{font-size:13.5px;line-height:1.5;display:flex;gap:7px;}
+.pill-item .dot{flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--azulejo);margin-top:7px;}
+.caution-box{background:var(--coral-soft);border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.55;color:var(--ink);margin-top:12px;}
+.caution-box b{color:var(--coral);}
+.meal-line{font-size:12.5px;color:var(--ink-soft);margin-top:4px;}
+
+/* checklist rows (todo + pretrip) */
+.check-row{display:flex;align-items:flex-start;gap:10px;padding:8px 2px;cursor:pointer;}
+.chk{flex-shrink:0;width:19px;height:19px;border-radius:6px;border:1.5px solid var(--ink-faint);margin-top:1px;display:flex;align-items:center;justify-content:center;transition:.12s;}
+.chk.on{background:var(--good);border-color:var(--good);}
+.chk.on::after{content:"✓";color:#fff;font-size:12px;font-weight:700;}
+.check-label{font-size:13.5px;line-height:1.45;}
+.check-row.done .check-label{color:var(--ink-faint);text-decoration:line-through;}
+.check-date{font-size:11px;color:var(--ink-faint);margin-top:2px;}
+
+/* reservation rows */
+.res-list{display:flex;flex-direction:column;gap:6px;}
+.res-row{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);cursor:pointer;}
+.res-row-main{flex:1;min-width:0;}
+.res-row-kind{font-size:10px;font-weight:700;color:var(--azulejo);letter-spacing:.04em;text-transform:uppercase;}
+.res-row-title{font-size:13.5px;font-weight:600;margin-top:1px;}
+.res-row-sub{font-size:11.5px;color:var(--ink-soft);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.res-row-chev{color:var(--ink-faint);font-size:14px;flex-shrink:0;}
+
+/* day memo */
+.day-memo textarea{
+  width:100%;font-family:inherit;font-size:13.5px;border:1px solid var(--line);border-radius:9px;
+  padding:9px 10px;background:var(--bg);color:var(--ink);resize:none;min-height:56px;
+  overflow:hidden;line-height:1.5;
+}
+.day-memo-saved{font-size:11px;color:var(--good);opacity:0;transition:opacity .2s;margin-top:4px;height:14px;}
+.day-memo-saved.show{opacity:1;}
+
+.helper{font-size:12px;color:var(--ink-faint);line-height:1.6;margin:4px 2px 2px;}
+
+/* reservation / pdf modal */
+.res-modal{position:fixed;inset:0;z-index:50;background:rgba(10,14,20,.6);display:none;align-items:flex-end;justify-content:center;}
+.res-modal.open{display:flex;}
+.res-sheet{background:var(--surface);width:100%;max-width:560px;max-height:88vh;border-radius:16px 16px 0 0;display:flex;flex-direction:column;overflow:hidden;box-shadow:var(--shadow);}
+.res-sheet-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line);flex-shrink:0;gap:10px;}
+.res-sheet-head-text{min-width:0;}
+.res-sheet-kind{font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--azulejo);text-transform:uppercase;}
+.res-sheet-title{font-weight:700;font-size:15.5px;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.res-sheet-head button.close{flex-shrink:0;font-size:12.5px;font-weight:600;border-radius:8px;padding:7px 11px;border:1px solid var(--line);background:var(--bg);color:var(--ink-soft);}
+.res-body{overflow-y:auto;flex:1;}
+.res-body-pad{padding:14px 16px;}
+.res-field{margin-bottom:14px;}
+.res-field:last-child{margin-bottom:0;}
+.res-field-label{font-size:11px;font-weight:600;color:var(--ink-faint);letter-spacing:.04em;margin-bottom:4px;}
+.res-field-value{font-size:14px;line-height:1.55;}
+.res-addr-row{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap;}
+.res-addr-btn{font-size:12.5px;font-weight:600;border-radius:8px;padding:8px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);text-decoration:none;}
+.res-addr-btn.primary{background:var(--azulejo);color:#fff;border-color:var(--azulejo);}
+.map-hint{display:none;margin-top:8px;font-size:12.5px;line-height:1.5;background:var(--good-soft);color:var(--ink);border-radius:9px;padding:8px 10px;}
+.map-hint.show{display:block;}
+.res-row-map{flex-shrink:0;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;text-decoration:none;background:var(--surface);border:1px solid var(--line);}
+.place-row{display:flex;flex-wrap:wrap;gap:6px;}
+.place-chip{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:600;border-radius:999px;padding:6px 11px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;}
+.res-flag{font-size:12.5px;background:var(--coral-soft);color:var(--coral);border-radius:9px;padding:9px 11px;line-height:1.5;}
+.res-frame-wrap{border-top:1px solid var(--line);flex-direction:column;background:var(--surface-2);}
+.res-frame-wrap iframe{border:0;width:100%;height:58vh;background:#fff;}
+.res-pages{display:flex;flex-direction:column;gap:10px;padding:12px;}
+.res-pages img{display:block;width:100%;height:auto;background:#fff;border-radius:6px;box-shadow:var(--shadow);}
+.res-pages-note{font-size:12px;color:var(--ink-faint);text-align:center;line-height:1.5;}
+.res-pages-note a{font-weight:600;}
+.res-add-btn{margin-top:8px;width:100%;font-size:12.5px;font-weight:600;border-radius:9px;padding:9px;border:1px dashed var(--line);background:transparent;color:var(--azulejo);}
+
+.add-res-form label{font-size:11px;font-weight:600;color:var(--ink-faint);letter-spacing:.04em;display:block;margin-top:12px;}
+.add-res-form label:first-child{margin-top:0;}
+.add-res-form select,.add-res-form input[type="text"]{
+  width:100%;font-family:inherit;font-size:14px;border:1px solid var(--line);border-radius:9px;
+  padding:9px 10px;background:var(--bg);color:var(--ink);margin-top:6px;
+}
+.add-res-form input[type="file"]{margin-top:6px;font-size:12.5px;width:100%;}
+.add-res-save{margin-top:16px;width:100%;background:var(--azulejo);color:#fff;border:none;border-radius:9px;padding:11px;font-size:14px;font-weight:600;}
+.add-res-del{margin-top:10px;width:100%;background:transparent;border:1px solid var(--coral);color:var(--coral);border-radius:9px;padding:10px;font-size:13px;font-weight:600;}
+
+/* photos */
+.photo-strip{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 6px;}
+.photo-thumb{flex-shrink:0;width:84px;display:flex;flex-direction:column;gap:4px;cursor:pointer;}
+.photo-thumb-img{width:84px;height:74px;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+.photo-thumb-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-thumb-title{font-size:10.5px;color:var(--ink-soft);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:84px;}
+.photo-add-label{appearance:none;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;border-radius:8px;padding:8px 12px;border:1px solid var(--line);background:var(--bg);color:var(--ink-soft);cursor:pointer;}
+.photo-modal{position:fixed;inset:0;z-index:60;background:rgba(8,10,14,.9);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px;}
+.photo-modal.open{display:flex;}
+.photo-modal img{max-width:92vw;max-height:76vh;border-radius:10px;}
+.photo-modal-title{color:#fff;font-size:14px;font-weight:600;margin-top:10px;text-align:center;}
+.photo-modal-actions{display:flex;gap:10px;margin-top:16px;}
+.photo-modal-actions button{font-size:13px;font-weight:600;border-radius:8px;padding:9px 16px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;}
+
+/* who chip + name gate */
+.who-chip{margin-top:8px;font-size:12px;font-weight:600;border-radius:999px;padding:5px 11px;border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);}
+.name-gate{position:fixed;inset:0;z-index:70;background:rgba(8,10,14,.6);display:none;align-items:center;justify-content:center;padding:20px;}
+.name-gate.open{display:flex;}
+.name-gate-card{background:var(--surface);border-radius:16px;padding:22px 20px;max-width:360px;width:100%;box-shadow:var(--shadow);}
+.name-gate-title{font-weight:700;font-size:17px;}
+.name-gate-sub{font-size:12.5px;color:var(--ink-soft);margin-top:4px;line-height:1.5;}
+.name-gate-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
+.name-gate-list button{font-size:14px;font-weight:600;border-radius:10px;padding:12px 8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);}
+.name-gate-skip{display:block;width:100%;margin-top:14px;font-size:12.5px;color:var(--ink-faint);background:none;border:none;text-decoration:underline;padding:4px;}
+
+/* print / PDF export */
+.pdf-panel{display:none;position:fixed;left:12px;right:12px;bottom:16px;z-index:80;max-width:536px;margin:0 auto;background:var(--surface);color:var(--ink);border:1px solid var(--azulejo);border-radius:14px;padding:14px 16px;font-size:13.5px;line-height:1.55;box-shadow:0 8px 30px rgba(0,0,0,.25);}
+.pdf-panel-go{display:block;width:100%;margin-top:10px;background:var(--azulejo);color:#fff;border:none;border-radius:10px;padding:12px;font-size:14.5px;font-weight:700;}
+.pdf-panel-go.alt{background:var(--azulejo-soft);color:var(--azulejo);border:1px solid var(--azulejo);font-size:13.5px;margin-top:8px;}
+.pdf-viewer{display:none;position:fixed;inset:0;z-index:90;overflow-y:auto;background:#3a3f45;padding:0 8px 24px;}
+.pdf-viewer img{display:block;width:100%;max-width:560px;margin:10px auto;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4);}
+.pdf-viewer-bar{position:sticky;top:0;display:flex;gap:10px;align-items:center;justify-content:space-between;background:#22262b;color:#fff;font-size:12.5px;line-height:1.4;padding:10px 12px;margin:0 -8px;}
+.pdf-viewer-bar button{flex-shrink:0;font-size:13px;font-weight:700;border-radius:8px;padding:8px 14px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.15);color:#fff;}
+.pdf-panel-x{display:block;width:100%;margin-top:8px;background:transparent;border:1px solid var(--line);color:var(--ink-soft);border-radius:10px;padding:9px;font-size:13px;font-weight:600;}
+.pdf-sheet{position:absolute;left:-10000px;top:0;width:560px;background:#fff;color:#16243a;padding:0;}
+.pdf-sheet .daycard{box-shadow:none;margin:0 0 6px;border-color:#d7dcd3;background:#fff;}
+.pdf-sheet .daybody{display:block !important;}
+.pdf-sheet .daystub-chev,.pdf-sheet .daystub-wx,.pdf-sheet .res-row-map,.pdf-sheet .res-row-chev,
+.pdf-sheet .res-add-btn,.pdf-sheet .photo-add-label,.pdf-sheet .map-hint,.pdf-sheet .day-memo-saved,
+.pdf-sheet .wx-row,.pdf-sheet .helper,.pdf-sheet .print-btn{display:none !important;}
+.pdf-sheet .daybody-row:has(.wx-row){display:none;}
+.pdf-sheet .daybody-row:has(.place-row){display:none;}
+.pdf-head{padding:6px 2px 12px;}
+.pdf-sheet .photo-strip{flex-direction:column;flex-wrap:nowrap;overflow:visible;gap:14px;}
+.pdf-sheet .photo-thumb{width:100%;}
+.pdf-sheet .photo-thumb-img{width:100%;height:auto;border-radius:8px;}
+.pdf-sheet .photo-thumb-img img{width:100%;height:auto;max-height:640px;object-fit:contain;background:#f4f5f2;}
+.pdf-sheet .photo-thumb-title{width:100%;font-size:13px;color:#16243a;text-align:left;white-space:normal;padding:2px 2px 0;}
+.pdf-memo{white-space:pre-wrap;font-size:13.5px;line-height:1.5;border:1px solid #d7dcd3;border-radius:9px;padding:9px 10px;background:#fafbf9;}
+.print-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;font-size:13.5px;font-weight:700;border-radius:12px;padding:13px;border:1px solid var(--azulejo);background:var(--azulejo-soft);color:var(--azulejo);margin:10px 0 14px;}
+@media print{
+  .topbar,.who-chip,.name-gate,.photo-modal,.res-modal,#resModal,#photoModal,#addPhotoModal,#addResModal,
+  .daystub-chev,.daystub-wx,.res-add-btn,.photo-add-label,.day-memo-saved,.res-addr-btn,.print-btn,
+  button{display:none !important;}
+  body{background:#fff;color:#000;}
+  .daybody{display:block !important;}
+  .daycard{break-inside:avoid;page-break-inside:avoid;border:1px solid #ccc;margin-bottom:10px;}
+  textarea{border:1px solid #ccc;background:#fff;color:#000;}
+}
+</style>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-row">
+      <div>
+        <div class="trip-title">강신길 환갑여행 동행수첩</div>
+        <div class="trip-sub">2026.10.27 – 11.24 · 스페인·포르투갈</div>
+      </div>
+      <div class="dday-chip" id="topDday">–</div>
+    </div>
+    <button class="who-chip" id="whoChip">이름 선택</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div id="banner"></div>
+  <button class="print-btn" data-print-all>📄 전체 일정 PDF로 저장(인쇄)</button>
+  <div id="pretripCard"></div>
+  <div id="midtripCard"></div>
+  <div class="section-label" id="scheduleLabel">전체 일정</div>
+  <div id="dayList"></div>
+</div>
+
+<div class="name-gate" id="nameGate">
+  <div class="name-gate-card">
+    <div class="name-gate-title">누구신가요?</div>
+    <div class="name-gate-sub">선택하시면 그 분이 함께하는 일정만 보여드려요.</div>
+    <div class="name-gate-list" id="nameGateList"></div>
+    <button class="name-gate-skip" id="nameGateSkip">전체 일정 보기 (건너뛰기)</button>
+  </div>
+</div>
+
+<div class="res-modal" id="resModal">
+  <div class="res-sheet">
+    <div class="res-sheet-head">
+      <div class="res-sheet-head-text">
+        <div class="res-sheet-kind" id="resKind">예약</div>
+        <div class="res-sheet-title" id="resTitle">-</div>
+      </div>
+      <button class="close" id="resClose">닫기</button>
+    </div>
+    <div class="res-body">
+      <div class="res-body-pad" id="resFields"></div>
+      <div class="res-frame-wrap" id="resFrameWrap" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="photo-modal" id="photoModal">
+  <img id="photoModalImg" src="" alt="사진">
+  <div class="photo-modal-title" id="photoModalTitle"></div>
+  <div class="photo-modal-actions">
+    <button id="photoModalDelete">삭제</button>
+    <button id="photoModalClose">닫기</button>
+  </div>
+</div>
+
+<div class="res-modal" id="addPhotoModal">
+  <div class="res-sheet">
+    <div class="res-sheet-head">
+      <div class="res-sheet-head-text">
+        <div class="res-sheet-kind">사진 추가</div>
+        <div class="res-sheet-title" id="addPhotoDateLabel">-</div>
+      </div>
+      <button class="close" id="addPhotoClose">닫기</button>
+    </div>
+    <div class="res-body">
+      <div class="res-body-pad add-res-form">
+        <label>사진 선택</label>
+        <input type="file" id="addPhotoFile" accept="image/*">
+        <label>제목 (선택)</label>
+        <input type="text" id="addPhotoTitle" placeholder="예: 알함브라 야경, 점심 먹은 식당">
+        <button class="add-res-save" id="addPhotoSave">저장</button>
+        <div class="gate-note" id="addPhotoGate"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="res-modal" id="addResModal">
+  <div class="res-sheet">
+    <div class="res-sheet-head">
+      <div class="res-sheet-head-text">
+        <div class="res-sheet-kind">새 예약 추가</div>
+        <div class="res-sheet-title" id="addResDateLabel">-</div>
+      </div>
+      <button class="close" id="addResClose">닫기</button>
+    </div>
+    <div class="res-body">
+      <div class="res-body-pad add-res-form">
+        <label>종류</label>
+        <select id="addResKind">
+          <option value="레스토랑">레스토랑</option>
+          <option value="카페">카페</option>
+          <option value="액티비티">액티비티</option>
+          <option value="이벤트">이벤트</option>
+          <option value="기타">기타</option>
+        </select>
+        <label>이름</label>
+        <input type="text" id="addResTitle" placeholder="예: 보데가 티오 페페 저녁 예약">
+        <label>시간 · 시점</label>
+        <input type="text" id="addResTime" placeholder="예: 19:30 예약, 2인">
+        <label>주소</label>
+        <input type="text" id="addResAddr" placeholder="지도 검색에 쓸 주소나 장소명">
+        <label>메모 · 예약번호</label>
+        <input type="text" id="addResRef" placeholder="예약번호, 특이사항 등">
+        <label>예약 확인 파일 (선택)</label>
+        <input type="file" id="addResFile" accept="application/pdf,image/*">
+        <button class="add-res-save" id="addResSave">저장</button>
+        <div class="gate-note" id="addResGate"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const TRIP_START = "2026-10-27";
+const TRIP_END = "2026-11-24";
+
+const TICKETS = [
+  {id:"t_ke913", kind:"항공", title:"인천 → 마드리드 · KE913", date:"2026-10-27", time:"12:10 → 19:25", meta:"대한항공 · 인천국제공항 T2 → 마드리드 아돌포 수아레스 바라하스 공항(Adolfo Suárez Madrid–Barajas) T1", addr:"Incheon International Airport, Incheon, South Korea", ref:"트립닷컴 예약번호 1400828437578612 · PNR 78D862 · e티켓 180-2906524098(강신길)/099(최영순)", asset:"tickets/korean-air-eticket.pdf"},
+  {id:"t_prado", kind:"입장권", title:"프라도 · 레이나소피아 · 티센보르네미사", date:"2026-10-28", time:"3개관 공통 티켓", meta:"booking.com", addr:"Museo Nacional del Prado, C. de Ruiz de Alarcón, 23, 28014 Madrid, Spain", ref:"BK294477410482798 · PIN 7212", asset:"tickets/prado-sofia-thyssen.pdf", maps:[["프라도 미술관","Museo Nacional del Prado, C. de Ruiz de Alarcón, 23, 28014 Madrid, Spain"],["레이나 소피아","Museo Nacional Centro de Arte Reina Sofía, Calle de Santa Isabel, 52, 28012 Madrid, Spain"],["티센보르네미사","Museo Nacional Thyssen-Bornemisza, Paseo del Prado, 8, 28014 Madrid, Spain"]]},
+  {id:"t_palace", kind:"입장권", title:"마드리드 왕궁", date:"2026-10-28", time:"14:30 입장", meta:"Patrimonio Nacional · Fernando Brambila 특별전 무료 입장 포함", addr:"Calle de Bailén, s/n, 28071 Madrid, Spain", ref:"Booking.com · Order R126895090 · QR 티켓 2매(현장 스캔, 데스크 불필요)", asset:[{label:"강신길", url:"tickets/palace-1.pdf"},{label:"최영순", url:"tickets/palace-2.pdf"}]},
+  {id:"t_vinitus", kind:"맛집 · 점심", title:"비니투스(Vinitus) — 꿀대구", date:"2026-10-29", time:"점심", meta:"대표메뉴: Bacalao all i oli de mel(꿀대구) · 감바스 알 아히요 · 파타타스 브라바스 · 또르띠야 · 피스토 · 해산물 빠에야 · 메뉴가 주마다 바뀔 수 있어 꿀대구 재고는 현지에서 확인", addr:"Gran Vía, 4, 28013 Madrid, Spain", ref:"예약 안 받음 — 웨이팅 있을 수 있음, 일찍 가거나 바 카운터석 추천 · ☎ +34 916 144 421", asset:null},
+  {id:"t_latina", kind:"맛집 · 저녁 확정", title:"Lamiak — 라 라티나 타파스", date:"2026-10-28", time:"17:00 · 매일 12:30~02:00 영업(브레이크타임 없음)", meta:"라 라티나 카바 바후 거리의 가성비 타파스 바 — 트립어드바이저 최저가(€) 등급, 타파스 하나 약 €3라는 후기 · 같은 거리 대안(17시에도 영업): Taberna La Concha(Cava Baja 7, 주방 안 닫음, 수제 베르무트), La Taberna de Peñalver(Cava Baja 36, 12:00~24:00, 조금 더 비쌀) · Casa Lucas·Txakolina·Juana La Loca는 17시엔 닫혀 있음(20시 재오픈)", addr:"Lamiak, Calle de la Cava Baja, 42, 28005 Madrid, Spain", ref:"예약 없이 방문 — 영업시간은 구글맵에서 한 번 더 확인", asset:null},
+  {id:"t_sofia", kind:"입장권", title:"레이나 소피아 미술관 (3개관 통합권)", date:"2026-10-29", time:"오전 · 월·수~토 10:00~21:00, 일 10:00~14:30, 화요일 휴관", meta:"프라도에서 쓴 것과 같은 Paseo del Arte 통합권 — 소피아 몫 1회 입장 · 입구 매표소(우선 창구)에서 통합권 보여주고 입장권으로 교환 · 게르니카(피카소)는 2층 206번 전시실", addr:"Museo Nacional Centro de Arte Reina Sofía, Calle de Santa Isabel, 52, 28012 Madrid, Spain", ref:"예약번호 108246157 · 티켓 320015953/4 (1/2·2/2)", asset:"tickets/prado-sofia-thyssen.pdf", maps:[["레이나 소피아","Museo Nacional Centro de Arte Reina Sofía, Calle de Santa Isabel, 52, 28012 Madrid, Spain"],["티센보르네미사","Museo Nacional Thyssen-Bornemisza, Paseo del Prado, 8, 28014 Madrid, Spain"]]},
+  {id:"t_elrocio", kind:"맛집", title:"Bar El Rocío(Freiduría El Rocío) — 매운홍합찜", date:"2026-10-29", time:"", meta:"대표메뉴: 매운 홍합찜(Mejillones picantes, 주문 시 매운 정도 선택 가능) · 해산물 튀김류 · 영업 월~금 12:00~23:30(금 ~24:00), 토 12:00~23:00", addr:"Pasaje de Matheu, 2, 28012 Madrid, Spain", ref:"☎ +34 915 23 31 93", asset:null},
+  {id:"t_alsa3235", kind:"버스", title:"마드리드 → 빌바오 · ALSA 3235", date:"2026-10-30", time:"10:00 → 14:40", meta:"탑승지: Intercambiador de Avenida de América 버스 구역(지하, 장거리버스 레벨) · Bus 1, 좌석 37(최영순)·38(강신길) · 부킹코드 1gm7gvr · 탑승 시 여권 제시 필요", addr:"Intercambiador de Avenida de América, Avenida de América, s/n, 28002 Madrid, Spain", ref:"트립닷컴 예약번호 1400829630808477 · PIN 1446", asset:"tickets/alsa-bus-madrid-bilbao.pdf", flag:"pkpass 2매도 보유 — 삼성폰은 Apple Wallet 미지원이라 이 PDF로 보관하는 걸 권장"},
+  {id:"t_guggenheim", kind:"입장권", title:"빌바오 구겐하임 미술관", date:"2026-10-31", time:"10:00 입장", meta:"입장 후 종일 관람 가능 · 2:00~3:30pm 조용한 시간대", addr:"Abandoibarra Etorb., 2, 48009 Bilbao, Spain", ref:"Booking.com 예약 108251957 · 티켓 320031238/9 · QR 2매(현장 스캔, 데스크 불필요)", asset:[{label:"강신길", url:"tickets/guggenheim-1.pdf"},{label:"최영순", url:"tickets/guggenheim-2.pdf"}]},
+  {id:"t_sixt1", kind:"렌터카 픽업", title:"SIXT 픽업 · 빌바오 아반도역", date:"2026-10-31", time:"픽업 10/31 16:30 (반납 11/3 16:30 산티아고역)", meta:"Bilbao Abando Station · Audi A1 Sportback or similar · All Inclusive Protection·추가운전자·3자보험 포함", addr:"Plaza Circular, 2, 48008 Bilbao, Spain", ref:"SIXT 공식 사이트 직접예약 · 예약 9739040024 · 결제완료 €360.30", asset:"tickets/sixt-car.pdf"},
+  {id:"t_sixt_ret", kind:"렌터카 반납", title:"SIXT 반납 · 산티아고 콤포스텔라역", date:"2026-11-03", time:"반납 11/3 16:30 (SIXT 카운터 운영 08:00~21:00)", meta:"① 차량 진입: AP9/N550으로 시내·기차역 방향 진입 → Repsol 주유소 옆 로터리에서 Calle Horreo 방향 출구로 빠짐 → 약 300m 전방 우측에 SABA 주차장 입구 있음 → 입구에서 주차권 받고 진입 ② 차량 반납: 주차 후 지하 1층(Level -1) SABA 주차장 내 'Car Rental' 구역에 주차 ③ 키 반납 접수: 역 안(기차역 건물 내부)의 SIXT 데스크로 걸어가서 열쇠·서류 반납 — SIXT 바우처 기준 주소: Santiago Compostela Station, C/ Horreo 75, Level -1 (역 건물은 흔히 75A로도 표기)", addr:"C/ Horreo 75, Level -1, 15702 Santiago de Compostela, Spain", ref:"SIXT 공식 사이트 직접예약 · 예약 9739040024 · 결제완료 €360.30", asset:"tickets/sixt-car.pdf"},
+  {id:"t_ke5911", kind:"항공", title:"인천 → 바르셀로나 · KE5911 (형제팀)", date:"2026-11-04", time:"12:00 → 18:55", meta:"형제팀 4명(강신천·박경혜·강신덕·정부선) 탑승 — 인천국제공항 T2 → 바르셀로나 엘프라트 공항(Barcelona-El Prat Airport) — 막내가 현장 안내", addr:"Incheon International Airport, Incheon, South Korea", ref:"형제팀이 직접 예약·관리", asset:null},
+  {id:"t_bcn_sleepfly", kind:"숙소(형제팀)", title:"바르셀로나 공항 Sleep&Fly", date:"2026-11-04", time:"공항 내 숙박", meta:"형제팀 4명 인천→바르셀로나 도착 후 공항에서 1박(비행 일정 변경으로 당일 산티아고行 대신 공항 숙박 후 익일 이동). 도시세 1.8€ 현장지불", addr:"Terminal 1, Floor 1, Centro de Negocios Aeropuerto de Barcelona, 08820 El Prat de Llobregat, Spain", ref:"형제팀이 직접 예약·관리", asset:null},
+  {id:"t_vy1620", kind:"항공", title:"바르셀로나 → 산티아고 · VY1620 (형제팀)", date:"2026-11-05", time:"09:10 → 10:55", meta:"형제팀 4명 탑승, 이 비행으로 산티아고에서 합류 — 바르셀로나 엘프라트 공항(Aeropuerto de Barcelona-El Prat) 출발 → 산티아고 공항(Aeropuerto de Santiago-Rosalía de Castro) 도착", addr:"Aeropuerto de Barcelona-El Prat, 08820 El Prat de Llobregat, Barcelona, Spain", ref:"형제팀이 직접 예약·관리", asset:null},
+  {id:"t_vy1720", kind:"항공", title:"산티아고 → 세비야 · VY1720", date:"2026-11-06", time:"07:00 → 08:25", meta:"브엘링항공 · 수하물 15kg/20kg · 산티아고 데 콤포스텔라 공항(Aeropuerto de Santiago-Rosalía de Castro) 출발 → 세비야 공항(Aeropuerto de Sevilla, San Pablo) 도착", addr:"Aeropuerto de Santiago-Rosalía de Castro, 15820 Santiago de Compostela, A Coruña, Spain", ref:"트립닷컴 예약 · 항공사 PNR — 강신길 VQYK5H / 최영순 HIJH8M (2인 PNR 다름, 체크인 시 각자 코드로) · 티켓번호 0300369569560(강신길)/0300369569559(최영순)", asset:null, flag:"브엘링 사이트의 'GO TO CHECK-IN'으로 미리 온라인 체크인·모바일 보딩패스 받아두는 걸 권장(현장 발급보다 안전) — PNR이 2인 서로 다르니 체크인할 때 각자 이름+PNR로 따로 진행"},
+  {id:"t_flamenco", kind:"입장권+공연", title:"플라멩고 박물관 + Puro Flamenco 공연", date:"2026-11-06", time:"공연 17:00 시작(2시간) · 박물관 11:00-18:00, 30분 전 입장", meta:"Tiqets 바우처, 강신덕 예약 · 6인 1개 바코드 공통 사용", addr:"Museo del Baile Flamenco, Calle Manuel Rojas Marcos, 3, 41004 Sevilla, Spain", ref:"Reference ID 1947434169", asset:"tickets/flamenco-sevilla.pdf"},
+  {id:"t_ent_svq", kind:"렌터카 픽업", title:"Enterprise 픽업 · 세비야 기차역", date:"2026-11-07", time:"17:00 픽업", meta:"Full-size People Carrier, Opel Vivaro 또는 동급 · 9인승·5도어·자동·에어컨 · 큰가방2+작은가방1 · 픽업 안내: 기차역에서 왼쪽으로 나가 'Av. de Kansas City'의 대중 주차장으로 이동 · 보증금 €400(카드) · 주운전자 명의 신용카드·국제운전면허+국내면허 지참 필수(최소 만 25세)", addr:"Estación de Tren de Sevilla Santa Justa (Av. de Kansas City 주차장), Sevilla, 41008, Spain", ref:"Booking.com 753824478 · Enterprise 카운터 예약번호 77358730COUNT(주운전자: 강신길)", asset:"tickets/enterprise-svq-bcn.pdf"},
+  {id:"t_alhambra", kind:"입장권", title:"알함브라 궁전", date:"2026-11-09", time:"오전 (까를로스 5세 궁전 또는 알함브라 매표소에서 가이드 미팅)", meta:"나스르 궁전은 지정시간 입장", addr:"Alhambra, Granada, Spain", ref:"형제팀이 직접 관리", asset:null, flag:"가이드 현장 미팅 시 티켓 수령 — 별도로 소지할 필요 없음"},
+  {id:"t_sagrada", kind:"입장권", title:"사그라다 파밀리아", date:"2026-11-13", time:"13:45 입장", meta:"공식 오디오가이드 앱으로 자체 관람 · 입장 시 사진 신분증 지참 필수", addr:"Entrance on Carrer de la Marina, Sagrada Família, Barcelona, Spain", ref:"형제팀 예약 · Code 106995593 · 6인 QR 티켓(Locator 316996745~750)", asset:"tickets/sagrada-familia.pdf"},
+  {id:"t_ke5912", kind:"항공", title:"바르셀로나 → 인천 · KE5912 (형제팀)", date:"2026-11-13", time:"19:35 → (+1)16:05", meta:"형제팀 4명(강신천·박경혜·강신덕·정부선) 탑승 — 바르셀로나 엘프라트 공항(Barcelona-El Prat Airport) 출발, 15:30 숙소 출발, 16:30 공항 도착 후 체크인, 막내가 현장 안내", addr:"Aeropuerto de Barcelona-El Prat, 08820 El Prat de Llobregat, Barcelona, Spain", ref:"형제팀이 직접 예약·관리", asset:null},
+  {id:"t_guell", kind:"입장권", title:"구엘 공원", date:"2026-11-13", time:"오전", meta:"", addr:"Park Güell, Barcelona, Spain", ref:"형제팀이 직접 관리", asset:null, flag:"가이드 현장 미팅 시 티켓 수령 — 별도로 소지할 필요 없음"},
+  {id:"t_dali", kind:"입장권", title:"달리 극장 박물관 (Figueres)", date:"2026-11-14", time:"", meta:"렌트 반납 17:00 전 피게레스 왕복 시간 확보", addr:"Plaça Gala i Salvador Dalí, 5, 17600 Figueres, Spain", ref:"공식 홈페이지 직접예약 · 예약확인 107831265", asset:"tickets/dali-figueres.pdf"},
+  {id:"t_ent_bcn", kind:"렌터카 반납", title:"Enterprise 반납 · 바르셀로나 공항", date:"2026-11-14", time:"17:00 반납", meta:"공항 터미널 안(Enterprise 카운터) · 렌터카 카운터에서 반납 절차 안내 예정 · 반납 전 픽업 때와 동일한 양으로 주유 필수(미달 시 연료비+서비스비 청구) · 긴급연락처 +34 935 219 095", addr:"Aeropuerto de Barcelona-El Prat, 08820 El Prat de Llobregat, Barcelona, Spain", ref:"Booking.com 753824478 · Enterprise 카운터 예약번호 77358730COUNT(주운전자: 강신길)", asset:"tickets/enterprise-svq-bcn.pdf"},
+  {id:"t_mnac", kind:"입장권", title:"카탈루냐 국립미술관(MNAC)", date:"2026-11-15", time:"10:00 입장", meta:"Parc de Montjuïc, Barcelona", addr:"Palau Nacional, Parc de Montjuïc, s/n, 08038 Barcelona, Spain", ref:"Booking.com BK131904727169573 · PIN 4167", asset:"tickets/mnac-barcelona.pdf"},
+  {id:"t_vy1178", kind:"항공", title:"바르셀로나 → 포르투 · VY1178", date:"2026-11-16", time:"13:00 → 13:55", meta:"브엘링항공(Vueling) 직항 · 수하물 20kg 위탁(2인 추가) · 아고다 재예약(기존 FR4585 결항으로 대체) · 바르셀로나 엘프라트 공항(Aeropuerto de Barcelona-El Prat) 출발 → 포르투 프란시스쿠 사 카르네이루 공항(Aeroporto Francisco Sá Carneiro) 도착 · 공항 3시간 전 도착 권장", addr:"Aeropuerto de Barcelona-El Prat, 08820 El Prat de Llobregat, Barcelona, Spain", ref:"아고다 예약번호 1790417214 · PNR ENNIJN", asset:"tickets/vueling-bcn-opo.pdf"},
+  {id:"t_winetour", kind:"투어 가이드", title:"포르투 포트와인 셀러 — 예약 링크 모음", date:"2026-11-17", time:"", meta:"숙소(Avenida Diogo Leite)에서 전부 도보 거리 · Sandeman 예약: https://winetourism.sogrape.com/en/visit/sandeman · Ferreira 예약: https://winetourism.sogrape.com · Calém 예약: https://tour.calem.pt · Taylor's 공식: https://www.taylor.pt — 날짜 정해지면 아무 곳이나 골라 며칠 전 예약 권장", addr:"", ref:"", asset:null},
+  {id:"t_azenhas", kind:"맛집", title:"Azenhas do Mar — 문어요리", date:"2026-11-18", time:"저녁", meta:"절벽 위 해안 전망 식당(신트라 아젠야스 두 마르 마을) · 대표메뉴: Polvo a Carvão(숯불 문어구이) €22, Arroz de Polvo(문어 라이스) €20 — '문어 리조또'는 확인 안 됐고 문어 라이스/숯불구이가 가장 가까운 메뉴, 새우 리조또도 있음 · 일몰 시간대 전망이 특히 좋음", addr:"Azenhas do Mar, 2705-104 Colares, Sintra, Portugal", ref:"", asset:null, flag:"⚠ 리스본 시내에서 꽤 멀어요 — 택시로 약 45분~1시간(편도 €50~70대 예상), 대중교통(기차+버스)은 편도 약 1시간50분. 오리엔테역 도착(17:52) 후 바로 가면 왕복 이동에만 2시간 이상 걸릴 수 있어 저녁이 많이 늦어질 수 있음"},
+  {id:"t_fado_dinner", kind:"맛집+공연", title:"Fado no Porto — 저녁식사 + 파두 공연", date:"2026-11-16", time:"저녁(공연 포함)", meta:"포르투갈 가정식 저녁 + 라이브 파두 공연, 1인 €31~50선 · 가성비 평가 좋은 편(평점 4.2~4.4/5). 최근 리뷰 중 '예약했는데 휴무로 못 들어간' 사례 있어 방문 전 영업 여부·예약 재확인 권장", addr:"R. da Madeira, 146, 4000-330 Porto, Portugal", ref:"OpenTable 예약 가능", asset:null},
+  {id:"t_train_pl", kind:"기차", title:"포르투 → 리스본 · IC722", date:"2026-11-18", time:"14:45 → 17:52", meta:"캄파냥역 → 오리엔테역 · 객차21 좌석114(강신길)·116(최영순)", addr:"Estação de Porto-Campanhã, Porto, Portugal", ref:"Omio · 티켓 4987-2197223/4", asset:"tickets/porto-lisbon-train.pdf"},
+  {id:"t_fr9441", kind:"항공", title:"리스본 → 마드리드 · FR9441", date:"2026-11-21", time:"13:15 → 15:40", meta:"라이언에어 · 수하물 20kg(2인) · 리스본 움베르투 델가두 공항(Aeroporto Humberto Delgado) 출발 → 마드리드 아돌포 수아레스 바라하스 공항(Adolfo Suárez Madrid–Barajas) 도착", addr:"Aeroporto Humberto Delgado, Alameda das Comunidades Portuguesas, 1700-111 Lisboa, Portugal", ref:"트립닷컴 예약 · 예약번호 K2865Z", asset:null, flag:"라이언에어는 별도 PDF e-ticket이 없고 Ryanair 앱(설치 완료)에서 탑승권을 확인·발급 — 탑승 전 앱에서 예약번호 K2865Z로 로그인해 보딩패스 미리 받아두기"},
+  {id:"t_toledo_go", kind:"기차", title:"마드리드 → 톨레도 · Avant 08102", date:"2026-11-22", time:"10:15 → 10:49", meta:"아토차역 1층 승강장 → 톨레도역(Estación de Toledo) 도착 · 객차3 좌석159(강신길)·160(최영순) · 발차 2분 전 승강장 폐쇄", addr:"Estación de Madrid Puerta de Atocha, Spain", ref:"Omio · Localizador VFK66U", asset:"tickets/toledo-train.pdf"},
+  {id:"t_toledo_back", kind:"기차", title:"톨레도 → 마드리드 · Avant 08203", date:"2026-11-22", time:"20:25 → 20:59", meta:"톨레도역 → 아토차 · 객차1 좌석19(강신길)·20(최영순) · 발차 2분 전 승강장 폐쇄", addr:"Estación de Toledo, Spain", ref:"Omio · Localizador VFK66U", asset:"tickets/toledo-train.pdf"},
+  {id:"t_insurance_full", kind:"여행자보험", title:"해외여행자보험 (한화손해보험)", date:"2026-10-27", time:"보험기간 10/27 08:00 ~ 11/24 23:00", meta:"피보험자 강신길·최영순 · 해외의료비(상해/질병 각 US$3만) · 긴급구조/송환 US$7만 · 상해사망 3억원 · 항공지연·수하물·휴대품·긴급귀국·배상책임 등 포함", addr:"", ref:"증권번호 FAC0265686859000 · 한화손해보험 · 가입 마이뱅크(주) · 긴급연락처 82-2-360-2541", asset:"tickets/insurance-hanwha.pdf"},
+  {id:"t_insurance", kind:"여행자보험", title:"여행 취소보험 (Omio/XCover, 추가)", date:"2026-10-27", time:"", meta:"여행 전/중 취소 보장 각 €1785.24(본인부담 €44.63) · 피보험자 강신길·최영순 · Omio 포르투갈 구간 예약 전용, 위 종합보험과 별개로 추가 보유", addr:"", ref:"참조번호 GEY9GCZFFFINS", asset:"tickets/insurance-omio.pdf"},
+  {id:"t_sanmiguel", kind:"맛집", title:"산미겔 시장(Mercado de San Miguel)", date:"2026-11-24", time:"점심~오후 · 화요일 보통 10:00~24:00 영업", meta:"마요르 광장 바로 옆 유리 건물의 미식 시장 · 타파스·하몴·굴·크로케테·상그리아 등 가게별로 골라 서서 먹는 방식(좌석 적음) · 숙소(아토차)에서 도보 약 20분 또는 택시 10분 · 점심시간·저녁엔 붐비므로 오전 늦게나 오후 일찍 추천", addr:"Mercado de San Miguel, Plaza de San Miguel, s/n, 28005 Madrid, Spain", ref:"예약 불필요 — 현장에서 가게별 결제", asset:null, flag:"혼잡한 시장이라 소매치기 주의 — 가방은 앞으로. 공항 출발(18:00경) 전에 여유 있게 나오기"},
+  {id:"t_ke914", kind:"항공", title:"마드리드 → 인천 · KE914", date:"2026-11-24", time:"21:25 → (+1)18:15", meta:"대한항공 · 마드리드 아돌포 수아레스 바라하스 공항(Adolfo Suárez Madrid–Barajas) T1 → 인천 T2", addr:"Aeropuerto Adolfo Suárez Madrid-Barajas, Av. de la Hispanidad, 28042 Madrid, Spain", ref:"트립닷컴 예약번호 1400828437578612 · PNR 78D862 · e티켓 180-2906524098(강신길)/099(최영순)", asset:"tickets/korean-air-eticket.pdf"},
+];
+
+const DAYS = [
+{d:"2026-10-27",wd:"화",pop:"2",region:"인천 → 마드리드",transport:"✈ KE913 12:10 인천 → 19:25 마드리드",stay:"B&B 호텔 마드리드 산 페르민",lodgeAddr:"C. Magacela, 6, Usera, 28026 Madrid, Spain",lodgeRef:"트립닷컴 예약번호 1400828876128850 · PIN 9724",todo:["여권·탑승권·환전 최종 확인","위탁수하물 규정 확인(대한항공)","공항 이동 60~90분 여유 확보","체크인 시 확인: 마드리드 숙소가 27~30일(3박) 한 곳으로 연장 연결됨 — 예약번호 통합 여부 프런트에서 확인"],highlight:["인천 출발 → 마드리드 도착","호텔 체크인 후 휴식"],tickets:["t_ke913","t_insurance_full","t_insurance"],caution:"MAD 공항 → 숙소 이동 60~90분 여유. 호텔 셔틀/대중교통 예약확인서 재확인, 늦은 도착 시 late check-in 가능 여부 확인."},
+{d:"2026-10-28",wd:"수",pop:"2",region:"마드리드",transport:"도보/버스 시내",stay:"B&B 호텔 마드리드 산 페르민",lodgeAddr:"C. Magacela, 6, Usera, 28026 Madrid, Spain",lodgeRef:"트립닷컴 예약번호 1400828876128850 · PIN 9724",todo:["⚠ 오늘 농민 트랙터 시위(~18:00) — 프라도 앞 파세오 델 프라도로 행진. 아래 '🚶 우회경로' 버튼으로 이동","오전 프라도·레이나소피아·티센보르네미사 통합권 지참","왕궁 14:30 입장 — 이메일 입장권 사전 출력/캡처, 프라도 관람 후 이동시간 고려"],highlight:["오전: 프라도 미술관","오후 14:30: 마드리드 왕궁","저녁 17:00: 라 라티나 Lamiak에서 타파스(대안 Taberna La Concha · Taberna de Peñalver)"],tickets:["t_prado","t_palace","t_latina"],caution:"[오늘 시위] 농민·축산인 약 500대 트랙터 시위(tractorada) — 08:30경 시내 진입, 11:00경 콜론 광장 집결 후 파세오 델 프라도를 따라 도보로 아토차(농림부)까지 행진, 13:00경 아토차 도착, 18:00까지 허가. 프라도 미술관 앞을 그대로 지나가므로 늦은 오전~점심 입구 주변 혼잡. 프라도→왕궁은 아토차 쪽 말고 서쪽(솔·마요르 거리)으로, 왕궁→카바 바후는 마요르 광장 경유(그란 비아 데 산 프란시스코는 차량 통제 가능). 시위 군중 안으로 들어가지 말고, 인파 속 소매치기 주의. 콜론~아토차 구간은 택시·버스보다 도보·지하철이 빠름. 우회경로는 일반 안내이니 현장 경찰 통제를 우선 따를 것. 왕궁은 월~토 10~18시, 일 10~16시. 프라도는 월~토 10~20시, 일 10~19시. [낮 안전] 푸에르타 델 솔·마요르 광장·프라도 주변·왕궁 주변은 관광객이 몰려 소매치기가 잦은 구역 — 가방은 앞으로 메고 귀중품은 안쪽 주머니에, 지하철 혼잡시간(8~9:30, 17~20시)엔 특히 주의."},
+{d:"2026-10-29",wd:"목",pop:"2",region:"마드리드",transport:"도보/버스 시내",stay:"B&B 호텔 마드리드 산 페르민",lodgeAddr:"C. Magacela, 7, Usera, 28026 Madrid, Spain",lodgeRef:"트립닷컴 예약번호 1400828876350640 · PIN 7817",todo:["3개관 통합권 지참 — 소피아 매표소에서 입장권으로 교환","점심 비니투스는 예약을 안 받아 웨이팅 가능 — 12:30~13:00 일찍 도착 추천"],highlight:["오전: 레이나 소피아 미술관","점심: 비니투스(그란 비아 4)에서 꿀대구 — 소피아에서 도보 약 25분 또는 택시","시간 되면: 티센보르네미사 미술관(선택)","오후: 레티로 공원 산책","저녁: Bar El Rocío에서 매운홍합찜"],tickets:["t_sofia","t_vinitus","t_elrocio"],caution:"티센보르네미사는 월 12~16시, 화~일 10~19시 운영 — 시간 여유 보고 들를지 결정."},
+{d:"2026-10-30",wd:"금",pop:"2",region:"마드리드 → 빌바오",transport:"🚌 ALSA 3235 10:00 → 14:40",stay:"이비스 빌바오 센트로",lodgeAddr:"Calle Gral. Concha, 28, Abando, 48010 Bilbao, Spain",lodgeRef:"아고다 예약번호 1771643796",todo:["티켓함에서 '지도에서 보기' 눌러 Intercambiador de Avenida de América 위치 미리 확인","버스터미널 출발 45분 전 도착","지하 장거리버스 구역에서 전광판으로 ALSA/3235/Bilbao 플랫폼 확인","pkpass 또는 PDF 티켓 화면 캡처해두기"],highlight:["Madrid Avenida de América 버스터미널 출발","빌바오 시내 투어"],tickets:["t_alsa3235"],caution:"Intercambiador de Avenida de América는 메트로·세르카니아스·여러 버스회사가 모인 복합 환승센터 — 지하 장거리버스(Autobuses interurbanos) 구역으로 내려가 ALSA 표지판을 따라가야 함. 전광판에서 노선·플랫폼 재확인, 도심 교통 여유 있게 출발."},
+{d:"2026-10-31",wd:"토",pop:"2",region:"빌바오 → 산탄데르",transport:"🚗 SIXT 렌터카 픽업(16:00경)",stay:"플라자 산탄데르",lodgeAddr:"Cádiz, 13 Entresuelo, 39002 Santander, Spain",lodgeRef:"트립닷컴 예약번호 1400828876878890 · PIN 1082",todo:["10시 구겐하임 입장 — 예약번호로 현장 수령","SIXT Abando역 1층 왼쪽 데스크, 영업시간 08~20시 확인","렌터카 운전면허(국제면허+국내면허) 지참"],highlight:["구겐하임 미술관(10:00)","산탄데르 맛집 탐방"],tickets:["t_guggenheim","t_sixt1"],caution:"SIXT Abando 지점은 역 진입 후 1층 왼쪽. 지연 시 영업시간/24시간 픽업 조건 확인."},
+{d:"2026-11-01",wd:"일",pop:"2",region:"산탄데르 → 피코스데에우로파",transport:"🚗 렌트카 13:00 → 피코스 국립공원",stay:"파라도르 데 푸엔테 데",lodgeAddr:"Carretera de Fuente Dé, s/n, 39588 Fuente Dé, Cantabria, Spain",lodgeRef:"트립닷컴 예약번호 1400828876939138 · PIN 6860",todo:["푸엔테데 케이블카 운행여부 당일 아침 확인(기상 영향)"],highlight:["푸엔테 데 케이블카"],tickets:[],caution:"산악 날씨 영향으로 케이블카 운행이 취소될 수 있음 — 전날·당일 반드시 재확인."},
+{d:"2026-11-02",wd:"월",pop:"2",region:"피코스데에우로파",transport:"🚗 렌트카",stay:"파라도르 데 푸엔테 데",lodgeAddr:"Carretera de Fuente Dé, s/n, 39588 Fuente Dé, Cantabria, Spain",lodgeRef:"트립닷컴 예약번호 1400828876939138 · PIN 6860",todo:["콤포스텔라 숙소·렌트 반납 일정 다음날로 사전 확인"],highlight:["국립공원 산책"],tickets:[],caution:""},
+{d:"2026-11-03",wd:"화",pop:"2",region:"피코스데에우로파 → 산티아고 콤포스텔라",transport:"🚗 렌트카 09:00 → 16:00",stay:"호텔 럭스 산티아고",lodgeAddr:"Rúa do Doutor Teixeiro, 4, 15706 Santiago de Compostela, Spain",lodgeRef:"트립닷컴 예약번호 1400828877057991 · PIN 7190",todo:["오전 8시 이전 출발 — 장거리 구간이라 여유 확보","SIXT 반납 — Santiago역 SABA Level -1 Car Rental Zone","반납 후 시내 이동시간 별도 확보"],highlight:["광장에서 휴식"],tickets:["t_sixt_ret"],caution:"차량 반납: AP9/N550 → Repsol 주유소 옆 로터리에서 Calle Horreo 출구 → 300m 전방 우측 SABA 주차장 입구 → 지하 1층 Car Rental 구역 주차 → 역 건물 안 SIXT 데스크로 걸어가 키 반납. 30분 여유 두고 진입(카운터 운영 08:00~21:00)."},
+{d:"2026-11-04",wd:"수",pop:"2",region:"산티아고 콤포스텔라",transport:"도보",stay:"호텔 럭스 산티아고",lodgeAddr:"Rúa do Doutor Teixeiro, 4, 15706 Santiago de Compostela, Spain",lodgeRef:"트립닷컴 예약번호 1400828877057991 · PIN 7190",todo:["순례자의 길 왕복 15~21km 도보 — 체력·신발 점검"],highlight:["(강신길·최영순) 순례자의 길 동쪽 왕복(Leboreiro 방면)","(형제팀 4명) 인천→바르셀로나 KE5911 도착, 공항 내 Sleep&Fly 호텔 숙박"],tickets:["t_ke5911","t_bcn_sleepfly"],caution:"비행 일정이 바뀌어 형제팀은 11/4 당일 산티아고로 오지 않고 바르셀로나 공항에서 1박 후 11/5 아침 산티아고로 이동 — 합류는 11/5.",siblingView:{region:"인천 → 바르셀로나(공항 숙박)",transport:"✈ KE5911 12:00 → 18:55",stay:"바르셀로나 공항 Sleep&Fly 호텔",lodgeAddr:"Terminal 1, Floor 1, Centro de Negocios Aeropuerto de Barcelona, 08820 El Prat de Llobregat, Spain",lodgeRef:"도시세 1.8€ 현장지불",pop:"4"}},
+{d:"2026-11-05",wd:"목",pop:"2→6",region:"산티아고 콤포스텔라",transport:"도보",stay:"호텔 럭스 산티아고",lodgeAddr:"Rúa do Doutor Teixeiro, 4, 15706 Santiago de Compostela, Spain",lodgeRef:"트립닷컴 예약번호 1400828877057991 · PIN 7190",todo:["형제팀 VY1620편 10:55 산티아고 도착 — 공항 마중/합류 동선 확인","6인 전원 합류 후 동선 공유"],highlight:["형제팀 바르셀로나→산티아고 도착(VY1620) 합류","오브라도이로 광장 & 산티아고 대성당(지붕투어·박물관·글로리아 문)","산티아고 시장(현지식 점심)","산 도밍고스 데 보나발 · 갈리시아 민족 박물관","알라메다 공원 산책"],meal:"조식 호텔식 · 중식 현지식 · 석식 현지식",tickets:["t_vy1620"],caution:"",ref:"plan2"},
+{d:"2026-11-06",wd:"금",pop:"6",region:"산티아고 → 세비야",transport:"✈ VY1720 07:00 → 08:25",stay:"누마 세비야 존도",lodgeAddr:"Calle de Guzmán el Bueno, 12, 41004 Sevilla, Spain",lodgeRef:"막내 예약·현장 안내",todo:["이른 출발 — 전날 밤 공항 이동수단 확정","수하물 15kg/20kg 규정 확인","플라멩고 공연 30분 전(16:30) 입장 — 바우처 확인"],highlight:["세비야 알카사르 · 인디아스 문서관 관광","시간 여유시 황금의 탑 주변 산책","플라멩고 박물관 관람 + Puro Flamenco 공연(17:00, 2시간)","세비야 버섯 전망대(Setas) 야간 관광"],meal:"조식 기내식 · 중식 현지식 · 석식 현지식",tickets:["t_vy1720","t_flamenco"],caution:"07:00 출발이라 전날 밤 공항 이동수단 확정 필수. 렌터카는 11/7 17:00 픽업이라 그 전까지는 차량 없이 도보로 움직임. [안달루시아 안전] 세비야·그라나다 등 안달루시아 도시는 마드리드·바르셀로나보다 '도움 주는 척 다가오는 주의분산형 수법'이 더 흔하다고 알려져 있음 — 낯선 사람이 말 걸며 접근하면 소지품 먼저 확인."},
+{d:"2026-11-07",wd:"토",pop:"6",region:"세비야",transport:"도보, Enterprise 17:00 픽업",stay:"누마 세비야 존도",lodgeAddr:"Calle de Guzmán el Bueno, 12, 41004 Sevilla, Spain",lodgeRef:"막내 예약·현장 안내",todo:["황금의 탑 정문 앞 09:00 가이드 미팅","주운전자(강신길) 신용카드 + 국제운전면허·국내면허 지참","Enterprise 세비야 기차역 17:00 픽업 — 역에서 왼쪽으로 나가 Av. de Kansas City 공영주차장으로 이동"],highlight:["황금의 탑 · 과달키비르 강변","스페인 광장 · 마리아 루이사 공원","산타크루스 지구 · 세비야 대성당","저녁 스페인 광장 야경"],meal:"조식 현지식 · 중식 현지식 · 석식 현지식(숙소 자체 조리)",tickets:["t_ent_svq"],caution:"가이드 투어는 오후 2시 종료 예정. 렌터카 픽업 시 보증금 €400 카드 결제 필요 — 한도 여유있는 카드 준비. [안달루시아 안전] 세비야·그라나다 등은 '도움 주는 척 다가오는 주의분산형 수법'이 더 흔함 — 낯선 사람이 말 걸며 접근하면 소지품 먼저 확인.",ref:"plan2"},
+{d:"2026-11-08",wd:"일",pop:"6",region:"세비야 → 론다 → 그라나다",transport:"🚗 렌트카 07:00 출발",stay:"스마트 스위트 알바이신",lodgeAddr:"Calle San José Alta, 7, 18010 Granada, Spain",lodgeRef:"막내 예약·현장 안내",todo:["⏱ 시간 여유 있으면 말라가 들르기(로마극장·알카사바·대성당) — 선택사항, 확정 아님"],highlight:["론다 — 알라메다 델 타호 협곡 · 투우장 · 누에보 다리 · 구시가지(점심)","그라나다 도착 — 알바이신 니콜라스 전망대에서 환갑 기념 식사"],meal:"조식 현지식 · 중식 현지식 · 석식 현지식",tickets:[],caution:"형제팀 계획서엔 말라가가 경로에서 빠져있음(론다→그라나다 직행) — 시간 되면 들르는 선택사항으로만 확인됨. [밤 안전] 알바이신 니콜라스 전망대는 저녁 식사 장소라 어두워진 뒤 이동 — 좁고 경사진 골목이 많으니 일행과 함께 다니고 귀중품 단속.",ref:"plan2"},
+{d:"2026-11-09",wd:"월",pop:"6",region:"그라나다 → 과딕스 → 카르타헤나",transport:"가이드차량 → 렌트카",stay:"NH 캄포 카르타헤나",lodgeAddr:"Calle Ciudadela, 24, 30203 Cartagena, Murcia, Spain",lodgeRef:"막내 예약·현장 안내",todo:["체크아웃 전 짐 렌트카에 적재(주차 가능 확인)","까를로스 5세 궁전 또는 알함브라 매표소에서 가이드 미팅","알함브라 나스르 궁전 지정시간 엄수"],highlight:["알함브라 — 나스르 궁전 · 카를로스 5세 궁전 · 알카사바 · 헤네랄리페 정원","과딕스 동굴 주거지 · 파드레 포베다 전망대","카르타헤나 — 항구 산책 · 푸에르타스 데 무르시아 거리 · 구시가지"],meal:"조식 현지식 · 중식 현지식 · 석식 현지식",tickets:["t_alhambra"],caution:"알함브라는 11월 08:30~18:00 운영, 나스르 궁전은 지정 시간 준수 필수. 구엘공원과 마찬가지로 가이드 현장 미팅 시 티켓 수령.",ref:"plan2"},
+{d:"2026-11-10",wd:"화",pop:"6",region:"카르타헤나 → 엘체 → 발렌시아",transport:"🚗 렌트카 08:00",stay:"몬 스위트 카테드랄",lodgeAddr:"Carrer Guillem del Rei, 1, 46001 València, Spain",lodgeRef:"막내 예약·현장 안내",todo:["발렌시아 Mon Suites 숙소에 차량번호 사전 등록(구시가지 제한구역 진입 조건)","체크아웃 24시간 전 안내받기, 주차 가능 여부 10시간 전 재확인 — 주차 보장 안 됨"],highlight:["푸니카 성벽 · 로마 극장 · 몰리네테 고고학 공원","엘체 우에르토 델 쿠라(야자원)","발렌시아 팔라우 데 라 무시카 조망 · 투리아 정원 산책"],meal:"조식 현지식 · 중식 현지식 · 석식 현지식",tickets:[],caution:"발렌시아 구시가지는 차량 제한구역 — 숙소에 차량번호 사전등록 필요. 유료주차 1일 18€.",ref:"plan2"},
+{d:"2026-11-11",wd:"수",pop:"6",region:"발렌시아 → 페니스콜라 → (시간되면 타라고나) → 카스텔데펠스",transport:"🚗 렌트카 07:30",stay:"카스텔데펠스(SG 코스타 BCN 아파트먼트)",lodgeAddr:"Passeig de la Marina, 116, 08860 Castelldefels, Barcelona, Spain",lodgeRef:"막내 예약·현장 안내",todo:["3개 목적지라 이동시간 넉넉히 — 핵심 1~2곳 우선순위 정하기","체크인 시 보증금 250€ 사전 지불 필요"],highlight:["발렌시아 성모광장 · 대성당 · 레이나 광장","페니스콜라 성 & 남쪽 해변(점심)","시간 여유시 타라고나 지중해 전망대 · 로마 원형 경기장"],meal:"조식 현지식 · 중식 현지식 · 석식 현지식",tickets:[],caution:"SG 코스타 BCN 체크인(15:00-22:30) 때 보증금 250€ 사전 지불 — 현금/카드 준비. 도시세 1일 1인 1.98€, 유료주차 1일 20€.",ref:"plan2"},
+{d:"2026-11-12",wd:"목",pop:"6",region:"카스텔데펠스 → 몬세라트 → 바르셀로나",transport:"렌탈차량 06:00 출발",stay:"카스텔데펠스(SG 코스타 BCN 아파트먼트)",lodgeAddr:"Passeig de la Marina, 116, 08860 Castelldefels, Barcelona, Spain",lodgeRef:"막내 예약·현장 안내",todo:["몬세라트 산악열차/컴퓨터 날씨·건강(큰형 컨디션) 보고 결정 — 어려우면 일부만 참여","카스텔데펠스 복귀 후 대중교통으로 바르셀로나 이동"],highlight:["몬세라트 — 산악열차, 수도원 대광장, 성 미구엘 십자가(날씨·컨디션에 따라 생략 가능)","바르셀로나 구시가지 — 카탈루냐 광장 · 람블라 거리 · 보케리아 시장 · 고딕 지구 · 바르셀로나 대성당 · 몬주익 언덕 일몰","한식 저녁"],meal:"조식 현지식 · 중식 현지식 · 석식 현지식(한식)",tickets:[],caution:"사그라다 파밀리아·구엘공원은 11/13로 옮겨짐 — 이 날은 몬세라트+바르셀로나 구시가지만. [낮 안전] 람블라 거리(La Rambla)와 보케리아 시장(Mercat de la Boqueria)은 유럽에서도 소매치기로 가장 악명높은 구간 — 가방은 앞으로 메고 지갑·여권은 안쪽 주머니에. [밤 안전] 고딕 지구(Barri Gòtic) 뒷골목, 엘 라발(특히 El Raval 남쪽, Carrer Robadors 일대), 플라사 레이알(Plaça Reial)은 밤에 인적이 드물어 조심 — 몬주익 언덕에서 저녁에 내려올 때는 어두운 샛길 대신 큰길이나 버스·택시 이용 권장.",ref:"plan2"},
+{d:"2026-11-13",wd:"금",pop:"6→2",region:"바르셀로나",transport:"렌트카, 바르셀로나 공항",stay:"Mei, 바달로나의 방",lodgeAddr:"Carrer d'Alfons XII, 193, 08912 Badalona, Barcelona, Spain",lodgeRef:"Airbnb HMYAMH5PR4",todo:["숙소 도보거리 유료주차장 사전 예약(아래 주의사항 참고)","아침 바달로나 숙소 인근 주차장에 주차 후 바르셀로나 시내 이동","구엘공원 오전 방문(가이드 현장 수령)","사그라다 파밀리아 13:45 입장 — 신분증 지참, 오디오가이드 앱 준비","형제팀 4명 KE5912 19:35 귀국 — 15:30 공항 출발, 16:30 도착"],highlight:["구엘공원","사그라다 파밀리아 내부 관람(13:45, 공식 오디오가이드)","바르셀로나 공항에서 저녁식사 후 작별"],meal:"조식 호텔식 · 중식 현지식 · 석식 기내식",tickets:["t_guell","t_sagrada","t_ke5912"],caution:"이날 저녁 두 팀으로 나뉨 — 형제팀은 공항으로, 강신길 부부는 바달로나 숙소에 남음. 숙소 전용주차가 없어 도보 거리 유료 주차장이 필요 — 후보: ①Centric Badalona(Bypark, Carrer de Jaume Borràs 15, 24시간 경비·CCTV, Parclick/MyParking/Parkapp 사전예약 가능) ②Mercat Nou 주차장(Carrer d'Alfons XII 58, 숙소와 같은 거리) ③SABA Plaça la Plana(SABA 공식 앱 예약). ⚠ 숙소(193번지)까지 정확한 도보 거리는 지도 도구로 확인 못했으니 체크인 전 구글맵에서 직접 거리 확인 후 예약 권장. [낮 안전] 사그라다 파밀리아·구엘공원 모두 입장 대기줄이 소매치기 표적 — 줄 서있는 동안 가방·소지품 주의."},
+{d:"2026-11-14",wd:"토",pop:"2",region:"바르셀로나",transport:"렌트카 반납 17:00",stay:"Mei, 바달로나의 방",lodgeAddr:"Carrer d'Alfons XII, 193, 08912 Badalona, Barcelona, Spain",lodgeRef:"Airbnb HMYAMH5PR4",todo:["달리 극장 박물관(피게레스) 왕복 — 공항 아님, 렌트 반납 17:00 전 귀환","반납 전 픽업 때와 동일한 양으로 주유","Enterprise 바르셀로나 공항(터미널 안) 17:00 반납"],highlight:["달리 박물관 탐방(예약완료)","형제팀은 이날 KE5912로 인천 도착(16:05) — 수고하셨습니다!"],tickets:["t_dali","t_ent_bcn"],caution:"피게레스 왕복 + 반납 시간 확보 필수 — 늦어도 16시 전 반납지점 출발. 연료 미달 시 추가 요금 청구되니 반납 전 주유 확인."},
+{d:"2026-11-15",wd:"일",pop:"2",region:"바르셀로나",transport:"🚇 지하철 Sant Roc(L2)→Paral·lel(환승)→Espanya(L3), 도보 10~15분",stay:"Mei, 바달로나의 방",lodgeAddr:"Carrer d'Alfons XII, 193, 08912 Badalona, Barcelona, Spain",lodgeRef:"Airbnb HMYAMH5PR4",todo:["① 숙소→Sant Roc역(L2, Carrer Alfons XII 쪽 출입구) 도보 이동","② Sant Roc에서 L2 승차 → Paral·lel역에서 L3(녹색선)로 환승","③ Espanya역 하차 → Avinguda de la Reina Maria Cristina 따라 몬주익 에스컬레이터로 도보 10~15분 → MNAC(Palau Nacional)","MNAC 10시 입장 — 일요일은 10~15시 단축 운영","T-casual 등 바르셀로나 통합권으로 탑승 가능(Zone 1)"],highlight:["카탈루냐 국립미술관(MNAC, 오전)","피카소 미술관(오후, 10~19시)"],tickets:["t_mnac"],caution:"일요일 겨울 운영시간: MNAC 10~15시, Picasso 10~19시 — MNAC 오전, Picasso 오후 순서 권장. 숙소에서 Sant Roc역까지 정확한 도보 거리는 지도에서 직접 확인(Carrer Alfons XII 쪽 출입구가 있다고 알려져 있음). [낮 안전] 바르셀로나 지하철(특히 L1·L3·L5)은 혼잡시간(8~9:30, 17~20시) 소매치기 주의 — 가방은 몸 앞쪽으로, 환승역(Paral·lel)에서 특히 신경쓸 것."},
+{d:"2026-11-16",wd:"월",pop:"2",region:"바르셀로나 → 포르투",transport:"✈ VY1178 13:00 → 13:55 (기존 FR4585 결항, 아고다로 재예약)",stay:"YOUROPO - Ribeira Gaia 아파트",lodgeAddr:"Avenida Diogo Leite nº 408, 4400-111 Vila Nova de Gaia, Portugal",lodgeRef:"Booking.com 5290164636 · PIN 4793",todo:["브엘링항공 수하물 20kg 위탁 규정 확인(2인 추가 완료)","BCN 엘프라트 공항 3시간 전 도착(10:00경), 체크인·보안검색 여유있게","예정보다 2시간 이른 낮 도착 — 숙소 체크인 전이면 짐 맡기고 리베이라 지역 오후 자유시간 활용"],highlight:["포르투 이동(변경된 VY1178)","저녁: Fado no Porto에서 식사+파두 공연"],tickets:["t_vy1178","t_fado_dinner"],caution:""},
+{d:"2026-11-17",wd:"화",pop:"2",region:"포르투",transport:"도보",stay:"YOUROPO - Ribeira Gaia 아파트",lodgeAddr:"Avenida Diogo Leite nº 408, 4400-111 Vila Nova de Gaia, Portugal",lodgeRef:"Booking.com 5290164636 · PIN 4793",todo:["포트와인 셀러 투어 사전예약 권장(Sandeman·Calém·Ferreira·Taylor's 중 선택, 숙소 바로 근처 강변 셀러들)"],highlight:["도우로 강변 산책","와이너리(포트와인 셀러) 투어"],tickets:["t_winetour"],caution:"워크인도 가능은 하지만, 가이드 투어+시음은 시간대가 정해져 있어 사전예약이 안전함 — 특히 강변(Ribeira) 셀러들은 자리가 먼저 참. 숙소가 바로 그 구역(Avenida Diogo Leite)이라 Sandeman·Calém·Ferreira·Taylor's 등 도보로 다 갈 수 있음, 공식 홈페이지나 GetYourGuide에서 며칠 전 예약 권장. [낮 안전] 포르투도 최근 소매치기 신고가 늘고 있다고 함 — 도우로 강변·리베이라 같은 번화가에서 가방 주의."},
+{d:"2026-11-18",wd:"수",pop:"2",region:"포르투 → 리스본",transport:"🚆 Intercidades IC722 14:45",stay:"리스본 베스트 초이스 아파트먼트 알파마",lodgeAddr:"Rua dos Remédios 3, Santa Maria Maior, 1100-449 Lisboa, Portugal",lodgeRef:"Booking.com 5290115469 · PIN 5763",todo:["캄파냥역에서 객차21 좌석114·116 확인","숙소 셔틀 제공 여부 확인 완료분 재확인","Azenhas do Mar 저녁 예약 — 택시 왕복시간 감안해 출발시간 정하기"],highlight:["리스본 시내 관광","저녁: Azenhas do Mar에서 문어요리(신트라 해안)"],tickets:["t_train_pl","t_azenhas"],caution:"원래 '버스 이동'으로 메모돼 있었으나 실제 예약은 Omnio 기차(IC722)로 확정 — 역·좌석 기준으로 움직일 것. Azenhas do Mar는 신트라 해안가라 리스본 숙소에서 편도 45분~1시간 더 이동해야 함 — 늦은 저녁이 될 수 있으니 미리 마음의 준비. [오전 포르투 안전] 포르투도 최근 소매치기 신고가 늘고 있다고 함 — 캄파냥역, 도우로 강변 같은 번화가에서 가방 주의. [저녁 리스본 안전] 숙소가 있는 알파마(Alfama) 지구는 리스본 내 소매치기 다발 지역으로 꼽힘(2024년 한 조사에서 포르투갈 내 최다) — 특히 밤에 좁은 골목 다닐 때 소지품 주의. 명물인 28번 트램은 소매치기로 가장 악명높은 교통편이라 타실 경우 가방을 앞으로."},
+{d:"2026-11-19",wd:"목",pop:"2",region:"리스본",transport:"도보/버스",stay:"리스본 베스트 초이스 아파트먼트 알파마",lodgeAddr:"Rua dos Remédios 3, Santa Maria Maior, 1100-449 Lisboa, Portugal",lodgeRef:"Booking.com 5290115469 · PIN 5763",todo:[],highlight:["리스본 시내 관광"],tickets:[],caution:"[안전] 숙소가 있는 알파마(Alfama) 지구는 리스본 내 소매치기 다발 지역으로 꼽힘 — 특히 밤에 좁은 골목 다닐 때 소지품 주의. 28번 트램 타실 경우 가방을 앞으로."},
+{d:"2026-11-20",wd:"금",pop:"2",region:"리스본",transport:"도보/버스",stay:"리스본 베스트 초이스 아파트먼트 알파마",lodgeAddr:"Rua dos Remédios 3, Santa Maria Maior, 1100-449 Lisboa, Portugal",lodgeRef:"Booking.com 5290115469 · PIN 5763",todo:[],highlight:["리스본 시내 관광"],tickets:[],caution:""},
+{d:"2026-11-21",wd:"토",pop:"2",region:"리스본 → 마드리드",transport:"✈ FR9441 13:15 → 15:40",stay:"Aspasios Atocha Apartments",lodgeAddr:"10 Calle del Marques de Toca, Centro, 28012 Madrid, Spain",lodgeRef:"Booking.com 6374744116 · PIN 4828",todo:["라이언에어 수하물 20kg 재확인","LIS T2 체크인·보안검색 여유있게"],highlight:["마드리드 시내 관광"],tickets:["t_fr9441"],caution:"LIS→MAD 도착 후 이동여유 고려해 저녁 일정 가볍게. [낮 안전] 숙소가 아토차역 인근 — 역 주변·소매치기 잦은 구역이니 짐 정리할 때 가방 주의."},
+{d:"2026-11-22",wd:"일",pop:"2",region:"마드리드 ⇄ 톨레도",transport:"🚆 Renfe Avant 10:15 / 20:25",stay:"Aspasios Atocha Apartments",lodgeAddr:"10 Calle del Marques de Toca, Centro, 28012 Madrid, Spain",lodgeRef:"Booking.com 6374744116 · PIN 4828",todo:["⚠ 1주 전(11/15경) Renfe 앱에서 예약번호 VFK66U로 운행 여부 확인 — 10/28 우르다 기차사고 영향","⚠ 전날(11/21) 밤 Renfe 앱·이메일로 취소·변경 안내 왔는지 다시 확인","취소되면: 플라사 엘립티카 버스터미널에서 톨레도행 버스(약 1시간) + Renfe 환불 신청","아토차역 전광판 Toledo/Avant 확인(승강장 변경 가능)","톨레도역 → 구시가지 이동시간 고려"],highlight:["톨레도 당일치기 관광"],tickets:["t_toledo_go","t_toledo_back"],caution:"왕복 모두 Renfe Avant로 확정. 톨레도역은 06~22:30 운영. [기차사고 영향] 10/28 마드리드~안달루시아 고속선 우르다~로스 예베네스 구간(118km 지점)에서 대형 충돌사고 — 그 노선은 전면 중단. 톨레도 Avant는 사고 지점 훨씬 전에 갈라지는 별도 지선이라 직접 영향은 없을 가능성이 높지만, 10/30 기준 공식 확인은 못함. 아토차역 혼잡·승강장 변경 가능성 있음. 이번 사고로 인한 취소는 대부분 환불·변경 가능."},
+{d:"2026-11-23",wd:"월",pop:"2",region:"마드리드 (프라도 재방문은 당일 결정)",transport:"도보/버스 시내",stay:"Aspasios Atocha Apartments",lodgeAddr:"10 Calle del Marques de Toca, Centro, 28012 Madrid, Spain",lodgeRef:"Booking.com 6374744116 · PIN 4828",todo:["아침 컨디션 보고 프라도 미술관 한 번 더 갈지 결정"],highlight:["(갈 경우) 프라도 미술관 재방문 — 월요일 10~20시","(안 갈 경우) 마드리드에서 휴식"],tickets:["t_prado"],caution:"가지고 있는 3개관 통합권(Paseo del Arte)은 미술관마다 1회 입장이 원칙이라, 10/28에 이미 쓴 프라도는 이 티켓으로 다시 들어갈 수 없을 가능성이 큼 — 안 되면 현장 매표소에서 새로 구매. 프라도는 월~토 18:00~20:00 무료 입장 시간대도 있음(줄이 길 수 있음)."},
+{d:"2026-11-24",wd:"화",pop:"2",region:"마드리드 → 서울",transport:"✈ KE914 21:25 → (+1)18:15",stay:"기내",todo:["체크아웃 후 짐 정리(숙소에 짐 맡길 수 있는지 확인), 공항 이동 여유 확보","산미겔 시장 다녀오기 — 점심 붐빔 피해 오전 늦게나 오후 일찍","18:00경 공항 출발(21:25 출발 국제선, 3시간 전 도착)","마지막 환전/카드 정리"],highlight:["마드리드 시내 마지막 관광","산미겔 시장(Mercado de San Miguel) — 타파스로 마지막 스페인 음식 + 바로 옆 마요르 광장","공항 이동"],tickets:["t_sanmiguel","t_ke914"],caution:"귀국 비행 늦은 밤 출발 — 마지막 날 체크아웃 후 짐 보관 방법 사전 확인."},
+];
+
+const PRETRIP_CHECK = [
+  {id:"pre_sim", label:"스페인·포르투갈 로밍/eSIM 준비"},
+  {id:"pre_license", label:"국제운전면허증 + 국내면허증 지참(렌터카 3구간: SIXT·Enterprise×2)"},
+  {id:"pre_pkpass", label:"ALSA 버스 pkpass — 삼성폰은 Apple Wallet 미지원, PDF/캡처본 백업"},
+  {id:"pre_cash", label:"유로 환전 및 해외결제 카드 수수료 확인"},
+  {id:"pre_baggage", label:"저가항공 수하물 규정 확인(라이언에어 20kg, 브엘링 15/20kg)"},
+  {id:"pre_porto_winery", label:"11/17 포르투 포트와인 셀러 투어 사전예약(Sandeman·Calém·Ferreira·Taylor's 중 선택)"},
+];
+
+const MIDTRIP_CHECK = [
+  {id:"mid_1107_guide", date:"11/7", label:"황금의 탑 정문 앞 09:00 가이드 미팅 (세비야 시내 투어)"},
+  {id:"mid_1107_pickup", date:"11/7", label:"Enterprise 세비야 기차역 17:00 픽업 — 보증금 €400 카드, 주운전자 강신길 신용카드+면허 지참"},
+  {id:"mid_1108_malaga", date:"11/8", label:"말라가는 선택사항 — 기본 경로는 론다→그라나다 직행, 시간 되면만 추가"},
+  {id:"mid_1109_alhambra", date:"11/9", label:"까를로스 5세 궁전/알함브라 매표소에서 가이드 미팅, 나스르 궁전 지정시간 엄수"},
+  {id:"mid_1110_valencia_car", date:"11/10", label:"발렌시아 Mon Suites 숙소에 차량번호 사전 등록(구시가지 제한구역)"},
+  {id:"mid_1111_deposit", date:"11/11", label:"카스텔데펠스(SG 코스타 BCN) 체크인 보증금 €250 준비"},
+  {id:"mid_1112_montserrat", date:"11/12", label:"몬세라트 산악열차 — 날씨·컨디션(큰형 상황) 보고 참여 여부 결정"},
+  {id:"mid_1113_guell", date:"11/13", label:"구엘공원 — 가이드 현장 미팅 시 티켓 수령(별도 소지 불필요)"},
+  {id:"mid_1113_sagrada", date:"11/13", label:"사그라다 파밀리아 13:45 입장 — 신분증 지참, 오디오가이드 앱 미리 준비"},
+  {id:"mid_1113_farewell", date:"11/13", label:"형제팀 4명 KE5912 19:35 귀국 — 15:30 공항 출발(16:30 도착)"},
+  {id:"mid_1113_parking", date:"11/13", label:"바달로나 숙소 도보거리 유료 주차장 사전예약(Centric Badalona 등) — 정확한 거리는 지도에서 직접 확인"},
+  {id:"mid_1114_fuel", date:"11/14", label:"Enterprise 바르셀로나 공항 반납 전 픽업 때와 동일하게 주유"},
+  {id:"mid_1114_dali", date:"11/14", label:"달리 박물관(피게레스) 왕복 — 렌트 반납 17:00 전 귀환"},
+];
+
+const TICKET_INDEX = Object.fromEntries(TICKETS.map(t=>[t.id,t]));
+
+// 날짜별 그날 머무르거나 지나가는 도시 — 각각 구글 날씨(시간대별 예보)로 연결. 마지막 도시가 카드 상단 아이콘
+const WX = {
+  madrid:["마드리드","Madrid"], bilbao:["빌바오","Bilbao"], santander:["산탄데르","Santander Spain"],
+  fuente:["푸엔테데","Fuente De Cantabria"], santiago:["산티아고","Santiago de Compostela"],
+  sevilla:["세비야","Sevilla"], ronda:["론다","Ronda Spain"], granada:["그라나다","Granada Spain"],
+  guadix:["과딕스","Guadix"], cartagena:["카르타헤나","Cartagena Spain"], elche:["엘체","Elche"],
+  valencia:["발렌시아","Valencia Spain"], peniscola:["페니스콜라","Peniscola"], tarragona:["타라고나","Tarragona"],
+  castelldefels:["카스텔데펠스","Castelldefels"], montserrat:["몬세라트","Montserrat Spain"],
+  barcelona:["바르셀로나","Barcelona"], badalona:["바달로나","Badalona"], figueres:["피게레스","Figueres"],
+  porto:["포르투","Porto"], lisbon:["리스본","Lisbon"], sintra:["신트라","Sintra"],
+  toledo:["톨레도","Toledo Spain"], segovia:["세고비아","Segovia"],
+};
+const DAY_WEATHER = {
+  "2026-10-27":["madrid"], "2026-10-28":["madrid"], "2026-10-29":["madrid"],
+  "2026-10-30":["madrid","bilbao"], "2026-10-31":["bilbao","santander"],
+  "2026-11-01":["santander","fuente"], "2026-11-02":["fuente"], "2026-11-03":["fuente","santiago"],
+  "2026-11-04":["santiago"], "2026-11-05":["santiago"], "2026-11-06":["santiago","sevilla"],
+  "2026-11-07":["sevilla"], "2026-11-08":["sevilla","ronda","granada"],
+  "2026-11-09":["granada","guadix","cartagena"], "2026-11-10":["cartagena","elche","valencia"],
+  "2026-11-11":["valencia","peniscola","tarragona","castelldefels"], "2026-11-12":["montserrat","barcelona","castelldefels"],
+  "2026-11-13":["barcelona","badalona"], "2026-11-14":["figueres","barcelona","badalona"], "2026-11-15":["barcelona"],
+  "2026-11-16":["barcelona","porto"], "2026-11-17":["porto"], "2026-11-18":["porto","lisbon","sintra"],
+  "2026-11-19":["lisbon"], "2026-11-20":["lisbon"], "2026-11-21":["lisbon","madrid"],
+  "2026-11-22":["madrid","toledo"], "2026-11-23":["madrid"], "2026-11-24":["madrid"],
+};
+function weatherUrl(key){
+  return "https://www.google.com/search?hl=ko&q=" + encodeURIComponent("날씨 " + WX[key][1]);
+}
+function weatherRowHtml(day){
+  const keys = DAY_WEATHER[day.d];
+  if(!keys||!keys.length) return "";
+  return `<div class="daybody-row"><div class="row-label">날씨 · 시간대별 예보</div><div class="wx-row">`+
+    keys.map(k=>`<a class="wx-chip" data-weather href="${weatherUrl(k)}" target="_blank" rel="noopener">🌤 ${escapeHtml(WX[k][0])}</a>`).join("")+
+    `</div><div class="helper">구글 날씨가 열려요 — 시간별 기온·강수확률·바람을 볼 수 있어요. 예보는 보통 열흘 전부터 나와요.</div></div>`;
+}
+
+// PDF를 페이지별 이미지로 변환해 둔 것 — 폰 브라우저는 PDF를 화면 안에 띄우지 못해서 이미지로 보여줌
+const TICKET_PAGES = {
+  "tickets/alsa-bus-madrid-bilbao.pdf":2, "tickets/dali-figueres.pdf":1,
+  "tickets/guggenheim-1.pdf":1, "tickets/guggenheim-2.pdf":1,
+  "tickets/insurance-omio.pdf":2, "tickets/mnac-barcelona.pdf":1,
+  "tickets/palace-1.pdf":1, "tickets/palace-2.pdf":1,
+  "tickets/porto-lisbon-train.pdf":3, "tickets/prado-sofia-thyssen.pdf":2,
+  "tickets/sixt-car.pdf":1, "tickets/sagrada-familia.pdf":6,
+  "tickets/flamenco-sevilla.pdf":1, "tickets/insurance-hanwha.pdf":2,
+  "tickets/enterprise-svq-bcn.pdf":7, "tickets/toledo-train.pdf":4,
+  "tickets/vueling-bcn-opo.pdf":1, "tickets/korean-air-eticket.pdf":6,
+};
+function pageImageUrls(pdfUrl){
+  const n = TICKET_PAGES[pdfUrl];
+  if(!n) return [];
+  const base = pdfUrl.replace(/^tickets\//,"tickets/img/").replace(/\.pdf$/,"");
+  return Array.from({length:n},(_,i)=>`${base}-${i+1}.png`);
+}
+function showAsset(asset){
+  const wrap = document.getElementById("resFrameWrap");
+  if(!asset){ wrap.innerHTML = ""; wrap.style.display = "none"; return; }
+  const imgs = pageImageUrls(asset.url);
+  let html;
+  if(imgs.length){
+    html = `<div class="res-pages">`+
+      imgs.map((src,i)=>`<img src="${escapeHtml(src)}" alt="${escapeHtml(asset.label||"티켓")} ${i+1}쪽">`).join("")+
+      `<div class="res-pages-note">QR은 화면 밝기를 최대로 올리고 보여주세요.<br>인터넷이 안 될 때를 대비해 화면 캡처해 두면 좋아요.</div></div>`;
+  } else if(asset.type && asset.type.indexOf("image/")===0){
+    html = `<div class="res-pages"><img src="${escapeHtml(asset.url)}" alt="첨부 이미지"></div>`;
+  } else {
+    html = `<iframe src="${escapeHtml(asset.url)}"></iframe>
+      <div class="res-pages"><div class="res-pages-note">폰에서는 PDF가 안 보일 수 있어요 — 예약 확인 화면을 캡처한 사진으로 올리면 확실히 보여요.</div></div>`;
+  }
+  wrap.innerHTML = html;
+  wrap.style.display = "flex";
+}
+
+function todayStr(){
+  const n = new Date();
+  return n.getFullYear()+"-"+String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0");
+}
+function dateObj(s){ const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d); }
+function diffDays(a,b){ return Math.round((dateObj(a)-dateObj(b))/86400000); }
+function fmtMD(s){ const [,m,d]=s.split("-"); return `${Number(m)}/${Number(d)}`; }
+function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function linkify(s){
+  return escapeHtml(s).replace(/(https?:\/\/[^\s<]+)/g, url=>`<a href="${url}" target="_blank" rel="noopener">${url}</a>`);
+}
+
+function loadJSON(key, fallback){
+  try{ const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }catch(e){ return fallback; }
+}
+function saveJSON(key, value){
+  try{ localStorage.setItem(key, JSON.stringify(value)); }catch(e){}
+}
+
+let CHECK_STATE = loadJSON("checkState", {});
+let DAY_NOTES = loadJSON("dayNotes", {});
+
+function renderDday(){
+  const t = todayStr();
+  const n = diffDays(TRIP_START, t);
+  let txt;
+  if(n>0) txt = "D-"+n;
+  else if(n===0) txt = "D-DAY";
+  else if(t<=TRIP_END) txt = "여행중";
+  else txt = "여행종료";
+  document.getElementById("topDday").textContent = txt;
+}
+
+function renderBanner(){
+  const el = document.getElementById("banner");
+  const t = todayStr();
+  if(t < TRIP_START){
+    const n = diffDays(TRIP_START, t);
+    el.innerHTML = `<div class="hero"><div class="hero-eyebrow">출발까지</div><div class="hero-dday">D-${n}</div>
+      <div class="hero-date">${TRIP_START} 출발 · 인천 → 마드리드(KE913)</div>
+      <div class="hero-note">아래 '출발 전 준비'부터 하나씩 체크해보세요.</div></div>`;
+  } else if(t > TRIP_END){
+    el.innerHTML = `<div class="hero"><div class="hero-eyebrow">환갑여행</div><div class="hero-dday">수고하셨습니다</div>
+      <div class="hero-date">2026.10.27 – 11.24</div></div>`;
+  } else {
+    el.innerHTML = "";
+  }
+}
+
+function checkRowHtml(item){
+  const on = !!(CHECK_STATE[item.id] && CHECK_STATE[item.id].done);
+  return `<div class="check-row${on?" done":""}" data-check="${item.id}">
+    <div class="chk${on?" on":""}"></div>
+    <div>
+      ${item.date?`<div class="check-date">${escapeHtml(item.date)}</div>`:""}
+      <div class="check-label">${escapeHtml(item.label)}</div>
+    </div>
+  </div>`;
+}
+
+function renderChecklistCard(containerId, cardId, title, items, openByDefault){
+  const el = document.getElementById(containerId);
+  const openCls = openByDefault ? " open" : "";
+  const doneCount = items.filter(i=>CHECK_STATE[i.id]&&CHECK_STATE[i.id].done).length;
+  el.innerHTML = `
+  <div class="daycard${openCls}" id="${cardId}">
+    <div class="daystub" data-toggle>
+      <div class="daystub-mid">
+        <div class="daystub-region">${escapeHtml(title)}</div>
+        <div class="daystub-trans">${doneCount}/${items.length} 완료</div>
+      </div>
+      <div class="daystub-chev">▸</div>
+    </div>
+    <div class="daybody">
+      <div class="daybody-row">${items.map(checkRowHtml).join("")}</div>
+    </div>
+  </div>`;
+}
+function renderPretrip(){
+  renderChecklistCard("pretripCard", "pretripDaycard", "출발 전 준비", PRETRIP_CHECK, todayStr() < TRIP_START);
+}
+function renderMidtrip(){
+  renderChecklistCard("midtripCard", "midtripDaycard", "11/7~11/14 주요 일정 체크", MIDTRIP_CHECK, false);
+}
+
+function todoListHtml(day, items){
+  if(!items||!items.length) return "";
+  return `<div class="daybody-row"><div class="row-label">해야 할 일</div>`+
+    items.map((x,idx)=>{
+      const id = "todo_"+day.d+"_"+idx;
+      const on = !!(CHECK_STATE[id] && CHECK_STATE[id].done);
+      return `<div class="check-row${on?" done":""}" data-check="${id}">
+        <div class="chk${on?" on":""}"></div>
+        <div><div class="check-label">${linkify(x)}</div></div>
+      </div>`;
+    }).join("")+`</div>`;
+}
+function highlightListHtml(items){
+  if(!items||!items.length) return "";
+  return `<div class="daybody-row"><div class="row-label">코스 · 볼거리</div><div class="pillist">`+
+    items.map(x=>`<div class="pill-item"><div class="dot"></div><div>${escapeHtml(x)}</div></div>`).join("")+`</div></div>`;
+}
+
+function resRowHtml(resId, kind, title, sub, addr){
+  return `<div class="res-row" data-open-res="${resId}">
+    <div class="res-row-main">
+      <div class="res-row-kind">${escapeHtml(kind)}</div>
+      <div class="res-row-title">${escapeHtml(title)}</div>
+      ${sub?`<div class="res-row-sub">${escapeHtml(sub)}</div>`:""}
+    </div>
+    ${addr?`<a class="res-row-map" data-map-addr="${escapeHtml(addr)}" href="${mapsUrl(addr)}" target="_blank" rel="noopener" aria-label="지도에서 보기">📍</a>`:""}
+    <div class="res-row-chev">›</div>
+  </div>`;
+}
+
+// 날짜별 그날 가는 곳 — 각각 구글맵 검색으로 연결 (숙소·티켓 주소는 예약 줄의 📍로 따로 연결)
+const PLACES = {
+  "2026-10-27":[["바라하스 공항 T1","Aeropuerto Adolfo Suárez Madrid-Barajas Terminal 1"]],
+  "2026-10-28":[["🚶 우회경로 프라도→왕궁 (솔·마요르 거리 경유)","Puerta del Sol, Madrid","https://www.google.com/maps/dir/?api=1&origin=Museo%20Nacional%20del%20Prado%2C%20Madrid&destination=Palacio%20Real%20de%20Madrid&waypoints=Plaza%20de%20las%20Cortes%2C%20Madrid%7CPuerta%20del%20Sol%2C%20Madrid%7CCalle%20Mayor%2061%2C%20Madrid&travelmode=walking"],["🚶 우회경로 왕궁→Lamiak (마요르 광장 경유)","Plaza Mayor, Madrid","https://www.google.com/maps/dir/?api=1&origin=Palacio%20Real%20de%20Madrid&destination=Lamiak%2C%20Calle%20de%20la%20Cava%20Baja%2042%2C%20Madrid&waypoints=Plaza%20Mayor%2C%20Madrid%7CArco%20de%20Cuchilleros%2C%20Madrid&travelmode=walking"],["프라도 미술관","Museo Nacional del Prado, Madrid"],["마드리드 왕궁","Palacio Real de Madrid"],["Lamiak(저녁 확정)","Lamiak, Calle de la Cava Baja 42, Madrid"],["Taberna La Concha(대안)","Taberna La Concha, Calle de la Cava Baja 7, Madrid"],["Taberna de Peñalver(대안)","La Taberna de Peñalver, Calle de la Cava Baja 36, Madrid"],["추천 타파스 3곳 한 지도에","Calle de la Cava Baja, Madrid","https://www.google.com/maps/dir/?api=1&origin=Taberna%20La%20Concha%2C%20Calle%20de%20la%20Cava%20Baja%207%2C%20Madrid&destination=Lamiak%2C%20Calle%20de%20la%20Cava%20Baja%2042%2C%20Madrid&waypoints=La%20Taberna%20de%20Pe%C3%B1alver%2C%20Calle%20de%20la%20Cava%20Baja%2036%2C%20Madrid&travelmode=walking"]],
+  "2026-10-29":[["레이나 소피아","Museo Nacional Centro de Arte Reina Sofía, Madrid"],["비니투스(점심)","Vinitus, Gran Vía 4, Madrid"],["티센보르네미사","Museo Nacional Thyssen-Bornemisza, Madrid"],["레티로 공원","Parque del Retiro, Madrid"],["El Rocío(저녁)","Freiduría El Rocío, Pasaje de Matheu 2, Madrid"]],
+  "2026-10-30":[["아베니다 데 아메리카 터미널","Intercambiador de Avenida de América, Madrid"],["빌바오 구시가지","Casco Viejo, Bilbao"]],
+  "2026-10-31":[["구겐하임 미술관","Museo Guggenheim Bilbao"],["SIXT 아반도역","Estación de Bilbao-Abando"],["산탄데르 해변길","Paseo de Pereda, Santander"]],
+  "2026-11-01":[["푸엔테 데 케이블카","Teleférico de Fuente Dé"]],
+  "2026-11-02":[["피코스 데 에우로파 국립공원","Parque Nacional de los Picos de Europa"]],
+  "2026-11-03":[["산티아고역(SIXT 반납)","Estación de tren de Santiago de Compostela"],["오브라도이로 광장","Praza do Obradoiro, Santiago de Compostela"]],
+  "2026-11-04":[["오브라도이로 광장","Praza do Obradoiro, Santiago de Compostela"],["레보레이로(순례길)","Leboreiro, Melide"]],
+  "2026-11-05":[["산티아고 공항","Aeropuerto de Santiago-Rosalía de Castro"],["산티아고 대성당","Catedral de Santiago de Compostela"],["아바스토스 시장","Mercado de Abastos de Santiago de Compostela"],["산 도밍고스 데 보나발","San Domingos de Bonaval, Santiago de Compostela"],["알라메다 공원","Parque da Alameda, Santiago de Compostela"]],
+  "2026-11-06":[["세비야 공항","Aeropuerto de Sevilla"],["세비야 알카사르","Real Alcázar de Sevilla"],["인디아스 문서관","Archivo General de Indias, Sevilla"],["황금의 탑","Torre del Oro, Sevilla"],["플라멩코 박물관","Museo del Baile Flamenco, Sevilla"],["세비야 버섯(Setas)","Setas de Sevilla"]],
+  "2026-11-07":[["황금의 탑","Torre del Oro, Sevilla"],["스페인 광장","Plaza de España, Sevilla"],["마리아 루이사 공원","Parque de María Luisa, Sevilla"],["산타크루스 지구","Barrio de Santa Cruz, Sevilla"],["세비야 대성당","Catedral de Sevilla"],["산타 후스타역(렌터카)","Estación de Sevilla-Santa Justa"]],
+  "2026-11-08":[["론다 누에보 다리","Puente Nuevo, Ronda"],["론다 투우장","Plaza de Toros de Ronda"],["알라메다 델 타호","Alameda del Tajo, Ronda"],["말라가 알카사바(선택)","Alcazaba de Málaga"],["산 니콜라스 전망대","Mirador de San Nicolás, Granada"]],
+  "2026-11-09":[["알함브라","Alhambra, Granada"],["카를로스 5세 궁전","Palacio de Carlos V, Granada"],["과딕스 동굴마을","Barrio de las Cuevas, Guadix"],["파드레 포베다 전망대","Mirador Padre Poveda, Guadix"],["카르타헤나 구시가지","Calle Mayor, Cartagena"]],
+  "2026-11-10":[["푸니카 성벽","Muralla Púnica, Cartagena"],["카르타헤나 로마극장","Teatro Romano de Cartagena"],["몰리네테 고고학공원","Parque Arqueológico del Molinete, Cartagena"],["우에르토 델 쿠라","Huerto del Cura, Elche"],["팔라우 데 라 무시카","Palau de la Música de València"],["투리아 정원","Jardín del Turia, Valencia"]],
+  "2026-11-11":[["발렌시아 성모광장","Plaza de la Virgen, Valencia"],["발렌시아 대성당","Catedral de Valencia"],["페니스콜라 성","Castillo de Peñíscola"],["타라고나 지중해 전망대","Balcó del Mediterrani, Tarragona"],["타라고나 원형경기장","Anfiteatro de Tarragona"]],
+  "2026-11-12":[["몬세라트 수도원","Monasterio de Montserrat"],["카탈루냐 광장","Plaça de Catalunya, Barcelona"],["람블라 거리","La Rambla, Barcelona"],["보케리아 시장","Mercat de la Boqueria, Barcelona"],["바르셀로나 대성당","Catedral de Barcelona"],["몬주익 언덕","Montjuïc, Barcelona"]],
+  "2026-11-13":[["구엘 공원","Park Güell, Barcelona"],["사그라다 파밀리아","Sagrada Família, Barcelona"],["바르셀로나 공항 T1","Aeropuerto de Barcelona-El Prat Terminal 1"],["Centric Badalona 주차장","Parking Centric Badalona, Carrer de Jaume Borràs 15, Badalona"]],
+  "2026-11-14":[["달리 극장 박물관","Teatre-Museu Dalí, Figueres"],["Enterprise 바르셀로나 공항","Enterprise Rent-A-Car Barcelona El Prat Airport"]],
+  "2026-11-15":[["Sant Roc역(L2)","Estació de Sant Roc, Badalona"],["카탈루냐 국립미술관","Museu Nacional d'Art de Catalunya"],["피카소 미술관","Museu Picasso, Barcelona"]],
+  "2026-11-16":[["바르셀로나 공항","Aeropuerto de Barcelona-El Prat"],["포르투 공항","Aeroporto Francisco Sá Carneiro, Porto"],["Fado no Porto","Fado no Porto, Rua da Madeira 146, Porto"]],
+  "2026-11-17":[["리베이라 강변","Cais da Ribeira, Porto"],["동 루이스 1세 다리","Ponte Luís I, Porto"],["Sandeman 셀러","Sandeman Cellars, Vila Nova de Gaia"],["Calém 셀러","Caves Calém, Vila Nova de Gaia"],["Taylor's 셀러","Taylor's Port, Vila Nova de Gaia"]],
+  "2026-11-18":[["캄파냥역","Estação de Porto-Campanhã"],["오리엔테역","Estação do Oriente, Lisboa"],["Azenhas do Mar","Azenhas do Mar, Colares, Sintra"]],
+  "2026-11-19":[["(추천) 벨렝탑","Torre de Belém, Lisboa"],["(추천) 제로니무스 수도원","Mosteiro dos Jerónimos, Lisboa"],["(추천) 코메르시우 광장","Praça do Comércio, Lisboa"]],
+  "2026-11-20":[["(추천) 상 조르즈 성","Castelo de São Jorge, Lisboa"],["(추천) 알파마 전망대","Miradouro de Santa Luzia, Lisboa"],["(추천) 바이샤·시아두","Chiado, Lisboa"]],
+  "2026-11-21":[["리스본 공항","Aeroporto Humberto Delgado, Lisboa"],["마드리드 공항","Aeropuerto Adolfo Suárez Madrid-Barajas"]],
+  "2026-11-22":[["아토차역","Estación de Madrid Puerta de Atocha"],["(대체) 플라사 엘립티카 버스터미널","Intercambiador de Plaza Elíptica, Madrid"],["톨레도역","Estación de Toledo"],["톨레도 대성당","Catedral de Toledo"],["소코도베르 광장","Plaza de Zocodover, Toledo"]],
+  "2026-11-23":[["프라도 미술관","Museo Nacional del Prado, Madrid"]],
+  "2026-11-24":[["산미겔 시장","Mercado de San Miguel, Madrid"],["마요르 광장","Plaza Mayor, Madrid"],["바라하스 공항 T1","Aeropuerto Adolfo Suárez Madrid-Barajas Terminal 1"]],
+};
+function placesRowHtml(day){
+  const ps = PLACES[day.d];
+  if(!ps||!ps.length) return "";
+  return `<div class="daybody-row"><div class="row-label">📍 가는 곳 지도 (누르면 구글맵)</div><div class="place-row">`+
+    ps.map(([label,q,url])=>`<a class="place-chip" data-map-addr="${escapeHtml(q)}" href="${url||mapsUrl(q)}" target="_blank" rel="noopener">${url?"🗺":"📍"} ${escapeHtml(label)}</a>`).join("")+
+    `</div><div class="map-hint">지도 창이 막혀서 열리지 않았어요. 장소 이름을 복사해 뒀으니 구글맵 앱 검색창을 길게 눌러 '붙여넣기' 하세요.</div></div>`;
+}
+
+function reservationListHtml(day){
+  const rows = [];
+  (day.tickets||[]).forEach(id=>{
+    const t = TICKET_INDEX[id];
+    if(!t) return;
+    const sub = [t.time, (t.addr||t.meta)].filter(Boolean).join(" · ");
+    rows.push(resRowHtml(id, t.kind, t.title, sub, t.addr));
+  });
+  if(day.lodgeAddr){
+    rows.push(resRowHtml("lodge_"+day.d, "숙소", day.stay, day.lodgeAddr, day.lodgeAddr));
+  }
+  return `<div class="daybody-row">
+    <div class="row-label">티켓 · 숙소 · 예약</div>
+    <div class="res-list">${rows.join("")}</div>
+    <div class="map-hint">지도 창이 막혀서 열리지 않았어요. 주소를 복사해 뒀으니 구글맵 앱 검색창을 길게 눌러 '붙여넣기' 하세요.</div>
+    <div class="res-list" data-custom-list="${day.d}"></div>
+    <button class="res-add-btn" data-add-res="${day.d}">+ 식당·카페·액티비티 예약 추가</button>
+  </div>`;
+}
+
+function dayMemoHtml(day){
+  const val = DAY_NOTES[day.d] || "";
+  return `<div class="daybody-row day-memo">
+    <div class="row-label">이 날의 메모 (이 폰에만 저장)</div>
+    <textarea data-memo="${day.d}" placeholder="오늘 있었던 일, 맛집, 다음에 참고할 점">${escapeHtml(val)}</textarea>
+    <div class="day-memo-saved" data-memo-saved="${day.d}">저장됨</div>
+  </div>`;
+}
+
+function dayPhotosHtml(day){
+  return `<div class="daybody-row">
+    <div class="row-label">사진</div>
+    <div class="photo-strip" data-photo-strip="${day.d}"></div>
+    <button class="photo-add-label" data-add-photo="${day.d}">+ 사진 추가</button>
+    <div class="helper">이 폰의 갤러리/카메라에서 사진을 고르고 제목을 붙여보세요. 이 날짜 아래에 저장되고, 이 폰에만 남아요(다른 사람과 공유되지 않아요).</div>
+  </div>`;
+}
+
+function dayCardHtml(day, isToday){
+  const pid = getMyPerson();
+  const isSibling = pid && pid!==ALL_ID && !CORE_IDS.includes(pid);
+  const sv = (isSibling && day.siblingView) ? day.siblingView : null;
+  const vRegion = sv ? sv.region : day.region;
+  const vTransport = sv ? sv.transport : day.transport;
+  const vStay = sv ? sv.stay : day.stay;
+  const vPop = sv && sv.pop ? sv.pop : day.pop;
+  const viewDay = sv ? {...day, stay:sv.stay, lodgeAddr:sv.lodgeAddr||"", lodgeRef:sv.lodgeRef||""} : day;
+  const body = `
+    <div class="daybody">
+      ${sv?`<div class="helper" style="margin-bottom:8px">※ 형제팀은 이날 아래 일정으로 별도 이동 — 강신길·최영순 부부와는 합류 전입니다</div>`:""}
+      <div class="daybody-row">
+        <div class="row-label">숙소</div>
+        <div class="pill-item"><div class="dot"></div><div>${escapeHtml(vStay)}</div></div>
+      </div>
+      ${day.meal?`<div class="meal-line">${escapeHtml(day.meal)}</div>`:""}
+      ${weatherRowHtml(day)}
+      ${todoListHtml(day, day.todo)}
+      ${highlightListHtml(day.highlight)}
+      ${placesRowHtml(day)}
+      ${reservationListHtml(viewDay)}
+      ${day.caution?`<div class="caution-box"><b>⚠ 주의</b> ${escapeHtml(day.caution)}</div>`:""}
+      ${day.ref==="plan2"?`<div class="helper">※ 상세 코스는 형제팀(6인 구간) 별도 계획서 기준 — 최종 확정본(10/10 엑셀)과 시간이 다를 수 있습니다.</div>`:""}
+      ${dayMemoHtml(day)}
+      ${dayPhotosHtml(day)}
+    </div>`;
+  const openCls = isToday ? " open" : "";
+  return `
+  <div class="daycard${isToday?" is-today":""}${openCls}" data-date="${day.d}" id="day-${day.d}">
+    <div class="daystub" data-toggle>
+      <div class="daystub-date">
+        <div class="daystub-dow">${day.wd}</div>
+        <div class="daystub-dom mono">${fmtMD(day.d)}</div>
+      </div>
+      <div class="daystub-mid">
+        <div class="daystub-region">${escapeHtml(vRegion)}</div>
+        <div class="daystub-trans">${escapeHtml(vTransport)}</div>
+      </div>
+      ${(()=>{ const ks = DAY_WEATHER[day.d]; if(!ks||!ks.length) return ""; const k = ks[ks.length-1];
+        return `<a class="daystub-wx" data-weather href="${weatherUrl(k)}" target="_blank" rel="noopener" title="${escapeHtml(WX[k][0])} 시간대별 날씨" aria-label="${escapeHtml(WX[k][0])} 시간대별 날씨">🌤</a>`; })()}
+      <div class="daystub-pop">${escapeHtml(vPop)}인</div>
+      <div class="daystub-chev">▸</div>
+    </div>
+    ${body}
+  </div>`;
+}
+
+const PEOPLE = [
+  {id:"kang_singil", label:"강신길"},
+  {id:"choi_yeongsun", label:"최영순"},
+  {id:"kang_sincheon", label:"강신천"},
+  {id:"park_gyeonghye", label:"박경혜"},
+  {id:"kang_sindeok", label:"강신덕"},
+  {id:"jeong_buseon", label:"정부선"},
+];
+const CORE_IDS = ["kang_singil","choi_yeongsun"];
+const ALL_ID = "all";
+const SIBLING_DATES = ["2026-11-04","2026-11-05","2026-11-06","2026-11-07","2026-11-08","2026-11-09","2026-11-10","2026-11-11","2026-11-12","2026-11-13","2026-11-14"];
+
+function getMyPerson(){ try{ return localStorage.getItem("myPersonId")||""; }catch(e){ return ""; } }
+function setMyPerson(id){ try{ localStorage.setItem("myPersonId", id); }catch(e){} }
+function personLabel(id){ const p = PEOPLE.find(x=>x.id===id); return p?p.label:""; }
+
+function visibleDays(){
+  const pid = getMyPerson();
+  if(!pid || pid===ALL_ID || CORE_IDS.includes(pid)) return DAYS;
+  return DAYS.filter(d=>SIBLING_DATES.includes(d.d));
+}
+
+function renderWhoChip(){
+  const chip = document.getElementById("whoChip");
+  const pid = getMyPerson();
+  if(!pid) chip.textContent = "이름 선택";
+  else if(pid===ALL_ID) chip.textContent = "전체 보기 ✎";
+  else chip.textContent = personLabel(pid)+" ✎";
+}
+
+function renderNameGate(){
+  document.getElementById("nameGateList").innerHTML = PEOPLE.map(p=>
+    `<button data-pick-name="${p.id}">${escapeHtml(p.label)}</button>`).join("");
+}
+function openNameGate(){ document.getElementById("nameGate").classList.add("open"); }
+function closeNameGate(){ document.getElementById("nameGate").classList.remove("open"); }
+
+function renderDays(){
+  const el = document.getElementById("dayList");
+  const list = visibleDays();
+  const t = todayStr();
+  let focusDate = null;
+  for(const d of list){ if(d.d>=t){ focusDate = d.d; break; } }
+  el.innerHTML = list.map(d=>dayCardHtml(d, d.d===focusDate)).join("")
+    + `<button class="print-btn" data-print-all>📄 전체 일정 PDF로 저장(인쇄) — 메모·사진 다 채운 뒤 눌러보세요</button>`;
+  const pid = getMyPerson();
+  const label = document.getElementById("scheduleLabel");
+  label.textContent = (pid && pid!==ALL_ID && !CORE_IDS.includes(pid))
+    ? `${personLabel(pid)}님 일정 (${list.length}일)`
+    : `전체 일정 (${list.length}일)`;
+  return focusDate;
+}
+
+function scrollToFocus(focusDate){
+  if(!focusDate) return;
+  const card = document.getElementById("day-"+focusDate);
+  if(card) setTimeout(()=>card.scrollIntoView({behavior:"smooth", block:"start"}), 100);
+}
+
+function toggleCheck(id, rowEl){
+  const cur = !!(CHECK_STATE[id] && CHECK_STATE[id].done);
+  const next = !cur;
+  rowEl.querySelector(".chk").classList.toggle("on", next);
+  rowEl.classList.toggle("done", next);
+  CHECK_STATE[id] = {done: next, at: Date.now()};
+  saveJSON("checkState", CHECK_STATE);
+  if(id.startsWith("pre_")){
+    const stub = document.querySelector("#pretripDaycard .daystub-trans");
+    if(stub){
+      const doneCount = PRETRIP_CHECK.filter(i=>CHECK_STATE[i.id]&&CHECK_STATE[i.id].done).length;
+      stub.textContent = doneCount+"/"+PRETRIP_CHECK.length+" 완료";
+    }
+  }
+  if(id.startsWith("mid_")){
+    const stub = document.querySelector("#midtripDaycard .daystub-trans");
+    if(stub){
+      const doneCount = MIDTRIP_CHECK.filter(i=>CHECK_STATE[i.id]&&CHECK_STATE[i.id].done).length;
+      stub.textContent = doneCount+"/"+MIDTRIP_CHECK.length+" 완료";
+    }
+  }
+}
+
+function copyText(str){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(str).catch(()=>fallbackCopy(str));
+  } else {
+    fallbackCopy(str);
+  }
+}
+function fallbackCopy(str){
+  try{
+    const ta = document.createElement("textarea");
+    ta.value = str; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+  }catch(e){}
+}
+function mapsUrl(addr){
+  return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(addr);
+}
+function buildReservation(resId){
+  if(resId.indexOf("lodge_")===0){
+    const date = resId.slice(6);
+    const day = DAYS.find(d=>d.d===date);
+    if(!day) return null;
+    return {kind:"숙소", title:day.stay, when:"", addr:day.lodgeAddr, ref:day.lodgeRef, asset:null, flag:null};
+  }
+  const t = TICKET_INDEX[resId];
+  if(!t) return null;
+  return {
+    kind: t.kind,
+    title: t.title,
+    when: [t.date?fmtMD(t.date):"", t.time].filter(Boolean).join(" · "),
+    addr: t.addr || "",
+    metaExtra: t.meta || "",
+    ref: t.ref,
+    asset: t.asset,
+    flag: t.flag,
+    maps: t.maps
+  };
+}
+
+let currentResAssetUrl = null;
+let currentCustomResId = null;
+
+async function openResModal(resId){
+  let r, customId = null, customDate = null;
+  if(resId.indexOf("custom_")===0){
+    const id = Number(resId.slice(7));
+    const item = await getCustomResById(id);
+    if(!item) return;
+    customId = id;
+    customDate = item.date;
+    r = {
+      kind: item.kind + " · 직접입력",
+      title: item.title,
+      when: item.time || "",
+      addr: item.addr || "",
+      metaExtra: "",
+      ref: item.ref || "",
+      asset: item.fileBlob ? {label:"첨부파일", url:(currentResAssetUrl = URL.createObjectURL(item.fileBlob)), type:item.fileType||item.fileBlob.type||""} : null,
+      flag: null
+    };
+  } else {
+    r = buildReservation(resId);
+  }
+  if(!r) return;
+  currentCustomResId = customId;
+  document.getElementById("resKind").textContent = r.kind || "예약";
+  document.getElementById("resTitle").textContent = r.title || "";
+
+  let fields = "";
+  if(r.when){
+    fields += `<div class="res-field"><div class="res-field-label">시점</div><div class="res-field-value mono">${escapeHtml(r.when)}</div></div>`;
+  }
+  if(r.metaExtra){
+    fields += `<div class="res-field"><div class="res-field-label">메모</div><div class="res-field-value">${linkify(r.metaExtra)}</div></div>`;
+  }
+  if(r.addr){
+    fields += `<div class="res-field"><div class="res-field-label">주소</div><div class="res-field-value">${escapeHtml(r.addr)}</div>
+      <div class="res-addr-row">
+        <button class="res-addr-btn" data-copy-addr="${escapeHtml(r.addr)}">주소 복사</button>
+        <a class="res-addr-btn primary" data-map-addr="${escapeHtml(r.addr)}" href="${mapsUrl(r.addr)}" target="_blank" rel="noopener">지도에서 보기</a>
+      </div>
+      <div class="map-hint">지도 창이 막혀서 열리지 않았어요. 주소를 복사해 뒀으니 구글맵 앱 검색창을 길게 눌러 '붙여넣기' 하세요.</div></div>`;
+  }
+  if(r.maps && r.maps.length){
+    fields += `<div class="res-field"><div class="res-field-label">미술관별 지도 (이 티켓으로 가는 곳)</div><div class="res-addr-row">`+
+      r.maps.map(([label,a])=>`<a class="res-addr-btn primary" data-map-addr="${escapeHtml(a)}" href="${mapsUrl(a)}" target="_blank" rel="noopener">📍 ${escapeHtml(label)}</a>`).join("")+
+      `</div><div class="map-hint">지도 창이 막혀서 열리지 않았어요. 주소를 복사해 뒀으니 구글맵 앱 검색창을 길게 눌러 '붙여넣기' 하세요.</div></div>`;
+  }
+  if(r.ref){
+    fields += `<div class="res-field"><div class="res-field-label">예약정보</div><div class="res-field-value mono">${linkify(r.ref)}</div></div>`;
+  }
+  if(r.flag){
+    fields += `<div class="res-field"><div class="res-flag">⚠ ${escapeHtml(r.flag)}</div></div>`;
+  }
+  if(customId!=null){
+    fields += `<div class="res-field"><button class="add-res-del" id="resDeleteCustom" data-custom-date="${customDate}">이 예약 삭제</button></div>`;
+  }
+  const assetList = Array.isArray(r.asset) ? r.asset
+    : (r.asset && typeof r.asset === "object") ? [r.asset]
+    : (r.asset ? [{label:"첨부파일", url:r.asset}] : []);
+  if(assetList.length > 1){
+    fields += `<div class="res-field"><div class="res-field-label">티켓 선택</div><div class="res-addr-row">`+
+      assetList.map((a,i)=>`<button class="res-addr-btn${i===0?" primary":""}" data-show-asset="${escapeHtml(a.url)}" data-asset-label="${escapeHtml(a.label)}">${escapeHtml(a.label)}</button>`).join("")+
+      `</div></div>`;
+  }
+  document.getElementById("resFields").innerHTML = fields;
+
+  showAsset(assetList[0] || null);
+  document.querySelector("#resModal .res-body").scrollTop = 0;
+  document.getElementById("resModal").classList.add("open");
+}
+function closeResModal(){
+  document.getElementById("resModal").classList.remove("open");
+  showAsset(null);
+  if(currentResAssetUrl){ URL.revokeObjectURL(currentResAssetUrl); currentResAssetUrl = null; }
+  currentCustomResId = null;
+}
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeResModal(); });
+
+// 메모칸: 쓴 만큼 늘어나서 스크롤 없이 전부 보이게
+function autosizeMemo(ta){
+  if(!ta || !ta.offsetParent) return;   // 접힌 카드 안이면 펼칠 때 다시 맞춤
+  ta.style.height = "auto";
+  ta.style.height = (ta.scrollHeight + 2) + "px";
+}
+function autosizeMemosIn(root){ (root||document).querySelectorAll("textarea[data-memo]").forEach(autosizeMemo); }
+function saveMemoNow(ta){
+  const date = ta.dataset.memo;
+  clearTimeout(memoSaveTimers[date]);
+  if(DAY_NOTES[date] === ta.value) return;
+  DAY_NOTES[date] = ta.value;
+  saveJSON("dayNotes", DAY_NOTES);
+}
+window.addEventListener("resize", ()=>autosizeMemosIn());
+document.addEventListener("focusout", (e)=>{ const ta = e.target.closest && e.target.closest("[data-memo]"); if(ta) saveMemoNow(ta); });
+document.addEventListener("visibilitychange", ()=>{ if(document.hidden) document.querySelectorAll("textarea[data-memo]").forEach(saveMemoNow); });
+
+let memoSaveTimers = {};
+document.addEventListener("input", (e)=>{
+  const ta = e.target.closest("[data-memo]");
+  if(!ta) return;
+  autosizeMemo(ta);
+  const date = ta.dataset.memo;
+  clearTimeout(memoSaveTimers[date]);
+  memoSaveTimers[date] = setTimeout(()=>{
+    DAY_NOTES[date] = ta.value;
+    saveJSON("dayNotes", DAY_NOTES);
+    const badge = document.querySelector(`[data-memo-saved="${date}"]`);
+    if(badge){ badge.classList.add("show"); setTimeout(()=>badge.classList.remove("show"),1200); }
+  }, 500);
+});
+
+document.addEventListener("click", (e)=>{
+  if(e.target.closest("[data-weather]")) return;
+  // 지도에서 보기: 앱 안 화면(카톡·Claude 앱 등)은 새 창 링크를 막는 경우가 있어
+  // ① 새 창 → ② 현재 화면에서 구글맵으로 이동 → ③ 둘 다 막히면 주소 복사 + 안내 순서로 시도
+  const mapLink = e.target.closest("[data-map-addr]");
+  if(mapLink){
+    e.preventDefault();
+    const url = mapLink.getAttribute("href");
+    let opened = null;
+    try{ opened = window.open(url, "_blank"); if(opened) opened.opener = null; }catch(err){}
+    if(opened) return;
+    try{ window.top.location.href = url; return; }catch(err){}
+    copyText(mapLink.dataset.mapAddr);
+    const box = mapLink.closest(".res-field") || mapLink.closest(".daybody-row");
+    const hint = box && box.querySelector(".map-hint");
+    if(hint) hint.classList.add("show");
+    return;
+  }
+  if(e.target.closest("[data-print-all]")){ exportPdf(); return; }
+  const stub = e.target.closest("[data-toggle]");
+  if(stub){ const card = stub.closest(".daycard"); card.classList.toggle("open"); autosizeMemosIn(card); return; }
+
+  const chk = e.target.closest("[data-check]");
+  if(chk){ toggleCheck(chk.dataset.check, chk); return; }
+
+  const resRow = e.target.closest("[data-open-res]");
+  if(resRow){ openResModal(resRow.dataset.openRes); return; }
+
+  const assetBtn = e.target.closest("[data-show-asset]");
+  if(assetBtn){
+    showAsset({url:assetBtn.dataset.showAsset, label:assetBtn.dataset.assetLabel});
+    assetBtn.parentElement.querySelectorAll("[data-show-asset]").forEach(b=>b.classList.toggle("primary", b===assetBtn));
+    return;
+  }
+
+  const copyBtn = e.target.closest("[data-copy-addr]");
+  if(copyBtn){
+    copyText(copyBtn.dataset.copyAddr);
+    const prev = copyBtn.textContent;
+    copyBtn.textContent = "복사됨";
+    setTimeout(()=>copyBtn.textContent = prev, 1200);
+    return;
+  }
+
+  if(e.target.id==="resClose" || e.target.id==="resModal"){ closeResModal(); return; }
+
+  if(e.target.id==="resDeleteCustom"){
+    const date = e.target.dataset.customDate;
+    const id = currentCustomResId;
+    if(id==null) return;
+    deleteCustomRes(id).then(()=>{
+      closeResModal();
+      paintCustomRes(date);
+    });
+    return;
+  }
+
+  const addBtn = e.target.closest("[data-add-res]");
+  if(addBtn){ openAddResModal(addBtn.dataset.addRes); return; }
+  if(e.target.id==="addResClose" || e.target.id==="addResModal"){ closeAddResModal(); return; }
+  if(e.target.id==="addResSave"){ submitAddRes(); return; }
+});
+
+const PHOTO_DB_NAME = "tripPhotosDB";
+const PHOTO_STORE = "photos";
+const CUSTOM_RES_STORE = "customRes";
+let photoDbPromise = null;
+function openPhotoDB(){
+  if(photoDbPromise) return photoDbPromise;
+  photoDbPromise = new Promise((resolve,reject)=>{
+    if(!window.indexedDB){ reject(new Error("no-idb")); return; }
+    const req = indexedDB.open(PHOTO_DB_NAME, 2);
+    req.onupgradeneeded = (e)=>{
+      const db = e.target.result;
+      if(!db.objectStoreNames.contains(PHOTO_STORE)){
+        const store = db.createObjectStore(PHOTO_STORE, {keyPath:"id", autoIncrement:true});
+        store.createIndex("date","date",{unique:false});
+      }
+      if(!db.objectStoreNames.contains(CUSTOM_RES_STORE)){
+        const store2 = db.createObjectStore(CUSTOM_RES_STORE, {keyPath:"id", autoIncrement:true});
+        store2.createIndex("date","date",{unique:false});
+      }
+    };
+    req.onsuccess = ()=>resolve(req.result);
+    req.onerror = ()=>reject(req.error);
+  });
+  return photoDbPromise;
+}
+async function addCustomRes(entry){
+  const db = await openPhotoDB();
+  return new Promise((resolve,reject)=>{
+    const tx = db.transaction(CUSTOM_RES_STORE,"readwrite");
+    const req = tx.objectStore(CUSTOM_RES_STORE).add(entry);
+    req.onsuccess = ()=>resolve(req.result);
+    req.onerror = ()=>reject(req.error);
+  });
+}
+async function getCustomResForDate(date){
+  const db = await openPhotoDB();
+  return new Promise((resolve,reject)=>{
+    const tx = db.transaction(CUSTOM_RES_STORE,"readonly");
+    const req = tx.objectStore(CUSTOM_RES_STORE).index("date").getAll(date);
+    req.onsuccess = ()=>resolve(req.result||[]);
+    req.onerror = ()=>reject(req.error);
+  });
+}
+async function getCustomResById(id){
+  const db = await openPhotoDB();
+  return new Promise((resolve,reject)=>{
+    const tx = db.transaction(CUSTOM_RES_STORE,"readonly");
+    const req = tx.objectStore(CUSTOM_RES_STORE).get(id);
+    req.onsuccess = ()=>resolve(req.result||null);
+    req.onerror = ()=>reject(req.error);
+  });
+}
+async function deleteCustomRes(id){
+  const db = await openPhotoDB();
+  return new Promise((resolve,reject)=>{
+    const tx = db.transaction(CUSTOM_RES_STORE,"readwrite");
+    tx.objectStore(CUSTOM_RES_STORE).delete(id);
+    tx.oncomplete = ()=>resolve();
+    tx.onerror = ()=>reject(tx.error);
+  });
+}
+async function paintCustomRes(date){
+  const el = document.querySelector(`[data-custom-list="${date}"]`);
+  if(!el) return;
+  let items = [];
+  try{ items = await getCustomResForDate(date); }catch(e){ return; }
+  el.innerHTML = items.map(it=>{
+    const sub = [it.time, it.addr].filter(Boolean).join(" · ");
+    return resRowHtml("custom_"+it.id, it.kind+" · 직접입력", it.title, sub);
+  }).join("");
+}
+
+let addResTargetDate = null;
+let addResBusy = false, addResSession = 0;
+function setAddResBusy(on){
+  addResBusy = on;
+  const btn = document.getElementById("addResSave");
+  btn.disabled = on; btn.textContent = on ? "저장 중…" : "저장";
+  btn.style.opacity = on ? ".6" : "";
+}
+function openAddResModal(date){
+  addResSession++;
+  setAddResBusy(false);
+  addResTargetDate = date;
+  const day = DAYS.find(d=>d.d===date);
+  document.getElementById("addResDateLabel").textContent = day ? (fmtMD(day.d)+" "+day.region) : date;
+  document.getElementById("addResTitle").value = "";
+  document.getElementById("addResTime").value = "";
+  document.getElementById("addResAddr").value = "";
+  document.getElementById("addResRef").value = "";
+  document.getElementById("addResFile").value = "";
+  document.getElementById("addResGate").textContent = "";
+  document.getElementById("addResModal").classList.add("open");
+}
+function closeAddResModal(){
+  addResSession++;
+  setAddResBusy(false);
+  document.getElementById("addResModal").classList.remove("open");
+  addResTargetDate = null;
+}
+async function submitAddRes(){
+  const title = document.getElementById("addResTitle").value.trim();
+  const gate = document.getElementById("addResGate");
+  if(addResBusy) return;
+  if(!title){ gate.textContent = "이름을 입력해주세요."; return; }
+  if(!addResTargetDate) return;
+  const session = addResSession;
+  setAddResBusy(true);
+  const entry = {
+    date: addResTargetDate,
+    kind: document.getElementById("addResKind").value,
+    title,
+    time: document.getElementById("addResTime").value.trim(),
+    addr: document.getElementById("addResAddr").value.trim(),
+    ref: document.getElementById("addResRef").value.trim(),
+    addedAt: Date.now()
+  };
+  const fileInput = document.getElementById("addResFile");
+  const file = fileInput.files && fileInput.files[0];
+  if(file){
+    try{
+      entry.fileBlob = file.type.startsWith("image/") ? await resizeImageFile(file, 1600) : file;
+      entry.fileType = file.type;
+    }catch(e){}
+  }
+  if(session !== addResSession) return;     // 닫기를 눌렀으면 저장하지 않음
+  try{
+    await addCustomRes(entry);
+    const date = addResTargetDate;
+    closeAddResModal();
+    paintCustomRes(date);
+  }catch(e){
+    if(session === addResSession){ setAddResBusy(false); gate.textContent = "저장에 실패했어요. 다시 시도해주세요."; }
+  }
+}
+async function addPhoto(date, blob, title){
+  const db = await openPhotoDB();
+  return new Promise((resolve,reject)=>{
+    const tx = db.transaction(PHOTO_STORE,"readwrite");
+    const req = tx.objectStore(PHOTO_STORE).add({date, blob, title: title||"", addedAt:Date.now()});
+    req.onsuccess = ()=>resolve(req.result);
+    req.onerror = ()=>reject(req.error);
+  });
+}
+async function getPhotosForDate(date){
+  const db = await openPhotoDB();
+  return new Promise((resolve,reject)=>{
+    const tx = db.transaction(PHOTO_STORE,"readonly");
+    const req = tx.objectStore(PHOTO_STORE).index("date").getAll(date);
+    req.onsuccess = ()=>resolve(req.result||[]);
+    req.onerror = ()=>reject(req.error);
+  });
+}
+async function deletePhotoFromDB(id){
+  const db = await openPhotoDB();
+  return new Promise((resolve,reject)=>{
+    const tx = db.transaction(PHOTO_STORE,"readwrite");
+    tx.objectStore(PHOTO_STORE).delete(id);
+    tx.oncomplete = ()=>resolve();
+    tx.onerror = ()=>reject(tx.error);
+  });
+}
+
+function resizeImageFile(file, maxDim){
+  return new Promise((resolve)=>{
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = ()=>{
+      let w = img.width, h = img.height;
+      if(w > maxDim || h > maxDim){
+        if(w > h){ h = Math.round(h*maxDim/w); w = maxDim; }
+        else { w = Math.round(w*maxDim/h); h = maxDim; }
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, w, h);
+      canvas.toBlob((blob)=>{
+        URL.revokeObjectURL(url);
+        resolve(blob || file);
+      }, "image/jpeg", 0.82);
+    };
+    img.onerror = ()=>{ URL.revokeObjectURL(url); resolve(file); };
+    img.src = url;
+  });
+}
+
+async function paintPhotoStrip(date){
+  const el = document.querySelector(`[data-photo-strip="${date}"]`);
+  if(!el) return;
+  el.querySelectorAll("[data-photo-url]").forEach(t=>{ try{ URL.revokeObjectURL(t.dataset.photoUrl); }catch(e){} });
+  let photos = [];
+  try{ photos = await getPhotosForDate(date); }catch(e){ return; }
+  el.innerHTML = photos.map(p=>{
+    const url = URL.createObjectURL(p.blob);
+    return `<div class="photo-thumb" data-photo-id="${p.id}" data-photo-url="${url}" data-photo-title="${escapeHtml(p.title||"")}">
+      <div class="photo-thumb-img"><img src="${url}"></div>
+      ${p.title?`<div class="photo-thumb-title">${escapeHtml(p.title)}</div>`:""}
+    </div>`;
+  }).join("");
+}
+
+let currentPhotoId = null, currentPhotoDate = null;
+function openPhotoViewer(id, date, src, title){
+  currentPhotoId = id; currentPhotoDate = date;
+  document.getElementById("photoModalImg").src = src;
+  document.getElementById("photoModalTitle").textContent = title||"";
+  document.getElementById("photoModal").classList.add("open");
+}
+function closePhotoViewer(){
+  document.getElementById("photoModal").classList.remove("open");
+  document.getElementById("photoModalImg").src = "";
+}
+
+let addPhotoTargetDate = null;
+let addPhotoBusy = false;      // 저장 중 중복 탭 방지
+let addPhotoSession = 0;       // 닫기를 누르면 바뀌어서 진행 중이던 저장을 취소
+function setAddPhotoBusy(on){
+  addPhotoBusy = on;
+  const btn = document.getElementById("addPhotoSave");
+  btn.disabled = on; btn.textContent = on ? "저장 중…" : "저장";
+  btn.style.opacity = on ? ".6" : "";
+}
+function openAddPhotoModal(date){
+  addPhotoSession++;
+  setAddPhotoBusy(false);
+  addPhotoTargetDate = date;
+  const day = DAYS.find(d=>d.d===date);
+  document.getElementById("addPhotoDateLabel").textContent = day ? (fmtMD(day.d)+" "+day.region) : date;
+  document.getElementById("addPhotoFile").value = "";
+  document.getElementById("addPhotoTitle").value = "";
+  document.getElementById("addPhotoGate").textContent = "";
+  document.getElementById("addPhotoModal").classList.add("open");
+}
+function closeAddPhotoModal(){
+  addPhotoSession++;           // 아직 저장 중이었다면 그 저장은 버림
+  setAddPhotoBusy(false);
+  document.getElementById("addPhotoModal").classList.remove("open");
+  addPhotoTargetDate = null;
+}
+async function submitAddPhoto(){
+  const gate = document.getElementById("addPhotoGate");
+  const fileInput = document.getElementById("addPhotoFile");
+  const file = fileInput.files && fileInput.files[0];
+  if(addPhotoBusy) return;
+  if(!file){ gate.textContent = "사진을 선택해주세요."; return; }
+  if(!addPhotoTargetDate) return;
+  const title = document.getElementById("addPhotoTitle").value.trim();
+  const date = addPhotoTargetDate;
+  const session = addPhotoSession;
+  setAddPhotoBusy(true);
+  gate.textContent = "";
+  try{
+    const blob = await resizeImageFile(file, 1600);
+    if(session !== addPhotoSession) return;   // 그사이 닫기를 눌렀으면 저장하지 않음
+    await addPhoto(date, blob, title);
+    closeAddPhotoModal();
+    paintPhotoStrip(date);
+  }catch(err){
+    if(session === addPhotoSession){ setAddPhotoBusy(false); gate.textContent = "저장에 실패했어요. 다시 시도해주세요."; }
+  }
+}
+
+document.addEventListener("click", (e)=>{
+  const thumb = e.target.closest("[data-photo-id]");
+  if(thumb){
+    const strip = thumb.closest("[data-photo-strip]");
+    openPhotoViewer(Number(thumb.dataset.photoId), strip.dataset.photoStrip, thumb.dataset.photoUrl, thumb.dataset.photoTitle);
+    return;
+  }
+  if(e.target.id==="photoModalClose" || e.target.id==="photoModal"){ closePhotoViewer(); return; }
+  if(e.target.id==="photoModalDelete"){
+    if(currentPhotoId==null) return;
+    deletePhotoFromDB(currentPhotoId).then(()=>{
+      const pid = currentPhotoDate;
+      closePhotoViewer();
+      paintPhotoStrip(pid);
+    });
+    return;
+  }
+  const addPhotoBtn = e.target.closest("[data-add-photo]");
+  if(addPhotoBtn){ openAddPhotoModal(addPhotoBtn.dataset.addPhoto); return; }
+  if(e.target.id==="addPhotoClose" || e.target.id==="addPhotoModal"){ closeAddPhotoModal(); return; }
+  if(e.target.id==="addPhotoSave"){ submitAddPhoto(); return; }
+});
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closePhotoViewer(); });
+
+// ===== 전체 일정 PDF 만들기 =====
+// 아티팩트 화면 안에서는 인쇄 창(window.print)이 막혀서, PDF 파일을 직접 만들어 저장 창으로 넘김
+let pdfBusy = false;
+function loadScriptOnce(src){
+  return new Promise((resolve,reject)=>{
+    if(document.querySelector(`script[src="${src}"]`)){ resolve(); return; }
+    const s = document.createElement("script"); s.src = src; s.onload = resolve; s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+function setPdfStatus(text){
+  document.querySelectorAll("[data-print-all]").forEach(b=>{
+    if(!b.dataset.label) b.dataset.label = b.textContent;
+    b.textContent = text || b.dataset.label;
+    b.disabled = !!text;
+  });
+}
+function buildPdfSheet(){
+  const sheet = document.createElement("div");
+  sheet.className = "pdf-sheet";
+  const head = document.createElement("div");
+  head.className = "pdf-head";
+  head.innerHTML = `<div class="trip-title">강신길 환갑여행 동행수첩</div><div class="trip-sub">2026.10.27 – 11.24 · 스페인·포르투갈</div>`;
+  sheet.appendChild(head);
+  document.querySelectorAll("#dayList .daycard").forEach(card=>{
+    const c = card.cloneNode(true);
+    c.classList.add("open"); c.classList.remove("is-today");
+    c.removeAttribute("id");
+    c.querySelectorAll("textarea[data-memo]").forEach(ta=>{
+      const v = DAY_NOTES[ta.dataset.memo] || "";
+      const d = document.createElement("div");
+      d.className = "pdf-memo"; d.textContent = v || "(메모 없음)";
+      ta.replaceWith(d);
+    });
+    sheet.appendChild(c);
+  });
+  document.body.appendChild(sheet);
+  return sheet;
+}
+// 진행 상황·오류를 화면에 보여주는 패널(아티팩트 안에서는 alert 창이 막혀서 대신 사용)
+let pdfBlob = null, pdfPages = 0, pdfDownloads = null, pdfImages = [];
+function pdfPanel(html){
+  let el = document.getElementById("pdfPanel");
+  if(!el){
+    el = document.createElement("div"); el.id = "pdfPanel"; el.className = "pdf-panel";
+    document.body.appendChild(el);
+  }
+  el.innerHTML = html; el.style.display = html ? "block" : "none";
+}
+function pdfPanelClose(){ pdfPanel(""); }
+function withTimeout(promise, ms){
+  return Promise.race([promise, new Promise(r=>setTimeout(()=>r(null), ms))]);
+}
+async function getDownloads(){
+  if(!(window.claude && window.claude.use)) return null;
+  try{ return await withTimeout(window.claude.use("downloads"), 12000); }catch(e){ return null; }
+}
+async function exportPdf(){
+  if(pdfBusy) return;
+  pdfBusy = true;
+  let sheet = null;
+  try{
+    pdfPanel(`<b>PDF 준비 중…</b>`);
+    pdfPanel(`<b>PDF 도구 불러오는 중…</b>`);
+    await loadScriptOnce("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js");
+    await loadScriptOnce("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js");
+    sheet = buildPdfSheet();
+    pdfImages = [];
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({unit:"mm", format:"a4"});
+    const pageW = 210, pageH = 297, margin = 10, usableW = pageW - margin*2, usableH = pageH - margin*2;
+    const blocks = Array.from(sheet.children);
+    let y = margin, first = true;
+    for(let i=0;i<blocks.length;i++){
+      pdfPanel(`<b>PDF 만드는 중… (${i+1}/${blocks.length})</b><br>화면을 끄지 말고 잠시 기다려 주세요.`);
+      await new Promise(r=>setTimeout(r, 0));   // 화면이 멈추지 않게 한 장씩 숨 돌리기
+      const canvas = await html2canvas(blocks[i], {scale:1.3, backgroundColor:"#ffffff", useCORS:true, logging:false});
+      const pxPerMm = canvas.width / usableW;
+      let srcY = 0;
+      while(srcY < canvas.height){
+        let room = (pageH - margin) - y;
+        if(room < 30 && !first){ pdf.addPage(); y = margin; room = usableH; }
+        const sliceH = Math.min(canvas.height - srcY, Math.floor(room * pxPerMm));
+        const part = document.createElement("canvas");
+        part.width = canvas.width; part.height = sliceH;
+        part.getContext("2d").drawImage(canvas, 0, srcY, canvas.width, sliceH, 0, 0, canvas.width, sliceH);
+        const hMm = sliceH / pxPerMm;
+        const jpg = part.toDataURL("image/jpeg", 0.8);
+        pdfImages.push(jpg);
+        pdf.addImage(jpg, "JPEG", margin, y, usableW, hMm);
+        first = false;
+        srcY += sliceH; y += hMm + 4;
+        if(srcY < canvas.height){ pdf.addPage(); y = margin; }
+      }
+      canvas.width = canvas.height = 0;   // 메모리 정리
+    }
+    sheet.remove(); sheet = null;
+    pdfBlob = pdf.output("blob");
+    pdfPages = pdf.getNumberOfPages();
+    // 저장은 한 번 더 눌러서 진행(폰에서 저장 창이 눌림 직후에만 뜨는 경우 대비)
+    showPdfReady();
+  }catch(err){
+    pdfPanel(`<b>PDF를 만들지 못했어요.</b><br>인터넷 연결을 확인하고 다시 눌러주세요.<br><span style="opacity:.7;font-size:11px">(${escapeHtml(String(err && (err.message||err.code) || err))})</span><button class="pdf-panel-x" data-pdf-close>닫기</button>`);
+  }finally{
+    if(sheet) sheet.remove();
+    pdfBusy = false;
+  }
+}
+// 앱 안 화면(카톡·일부 앱)에서는 저장 기능이 없을 수 있어 → ① 아티팩트 저장 ② 폰 '공유' 창 ③ 직접 다운로드 순서로 시도
+function inAppHint(){
+  const ua = navigator.userAgent || "";
+  if(/KAKAOTALK/i.test(ua)) return "카카오톡 안에서 열려 있어요. 오른쪽 위 ⋮ → '다른 브라우저로 열기'를 누른 뒤 다시 해 보세요.";
+  return "앱 안 화면에서는 파일 저장이 막혀 있을 수 있어요. 앱을 최신 버전으로 업데이트하거나, 링크를 크롬·삼성인터넷에서 열어 다시 해 보세요.";
+}
+const PDF_NAME = "환갑여행_동행수첩.pdf";
+const PDF_OTHER_WAYS = `<button class="pdf-panel-go" data-pdf-direct>⬇ PDF 다운로드</button>
+  <button class="pdf-panel-go alt" data-pdf-tab>🗂 새 탭에서 열기 (인쇄·공유)</button>
+  <button class="pdf-panel-go alt" data-pdf-share>📤 폰 공유창으로 보내기 (내 파일·드라이브·카톡)</button>`;
+function showPdfReady(note){
+  pdfPanel(`<b>PDF 준비 완료 (${pdfPages}쪽, ${(pdfBlob.size/1048576).toFixed(1)}MB)</b><br>${note || "아래 방법 중 하나로 저장하세요. 하나가 안 되면 다음 버튼을 눌러 보세요."}
+    ${PDF_OTHER_WAYS}
+    <button class="pdf-panel-go alt" data-pdf-view>🖼 화면에서 미리보기</button>
+    <button class="pdf-panel-x" data-pdf-close>닫기</button>`);
+}
+// ① Claude 화면의 저장 기능(로그인·권한에 따라 '구성원만 가능'으로 막힐 수 있음)
+async function savePdfNow(){
+  if(!pdfBlob) return;
+  const downloads = await (pdfDownloads || getDownloads());
+  if(!downloads){ showPdfReady("이 화면에서는 'PDF 저장하기'가 막혀 있어요. 아래 '공유창' 또는 '바로 다운로드'를 눌러 보세요."); return; }
+  try{
+    await downloads.save({filename:PDF_NAME, data:pdfBlob});
+    pdfPanel(`<b>저장했어요 ✓</b><br>폰의 '다운로드'(내 파일) 폴더에서 열 수 있어요.<button class="pdf-panel-x" data-pdf-close>닫기</button>`);
+  }catch(err){
+    const code = err && err.code;
+    if(code==="declined") showPdfReady("저장을 취소했어요. 다시 누르거나 다른 방법을 써 보세요.");
+    else if(code==="rate_limited") showPdfReady("저장 창이 이미 열려 있어요. 잠시 후 다시 눌러주세요.");
+    else showPdfReady("이 방법은 막혀 있어요(구성원만 저장 가능 등). 아래 '공유창' 또는 '바로 다운로드'를 눌러 보세요.");
+  }
+}
+// 저장이 막힌 화면에서도 볼 수 있게 PDF 페이지를 이미지로 띄움
+function viewPdfPages(){
+  if(!pdfImages.length) return;
+  let v = document.getElementById("pdfViewer");
+  if(!v){ v = document.createElement("div"); v.id = "pdfViewer"; v.className = "pdf-viewer"; document.body.appendChild(v); }
+  v.innerHTML = `<div class="pdf-viewer-bar"><span>PDF 미리보기 · 이미지를 길게 누르면 저장할 수 있어요(안 되면 화면 캡처)</span><button data-pdf-view-close>닫기</button></div>`+
+    pdfImages.map((src,i)=>`<img src="${src}" alt="${i+1}쪽">`).join("");
+  v.style.display = "block"; v.scrollTop = 0;
+  pdfPanelClose();
+}
+// ② 안드로이드 공유창 — Claude 저장 기능을 거치지 않음
+async function sharePdfNow(){
+  if(!pdfBlob) return;
+  try{
+    const file = new File([pdfBlob], PDF_NAME, {type:"application/pdf"});
+    if(!(navigator.canShare && navigator.canShare({files:[file]}))){
+      showPdfReady("이 브라우저는 공유창을 지원하지 않아요. 'PDF 다운로드'를 눌러 주세요."); return;
+    }
+    await navigator.share({files:[file], title:"환갑여행 동행수첩"});
+    pdfPanel(`<b>공유창으로 보냈어요 ✓</b><br>'내 파일'·구글 드라이브·카톡 '나와의 채팅' 등에 저장하면 돼요.<button class="pdf-panel-x" data-pdf-close>닫기</button>`);
+  }catch(err){
+    if(err && err.name === "AbortError") showPdfReady("공유를 취소했어요.");
+    else showPdfReady("공유창을 열지 못했어요. 'PDF 다운로드'를 눌러 주세요.");
+  }
+}
+// 새 탭에 PDF를 띄움 — 그 탭의 메뉴(⋮)에서 인쇄·공유
+function openPdfTab(){
+  if(!pdfBlob) return;
+  const url = URL.createObjectURL(pdfBlob);
+  const w = window.open(url, "_blank");
+  if(!w){ showPdfReady("새 탭이 막혔어요. 'PDF 다운로드'를 눌러 주세요."); return; }
+  pdfPanel(`<b>새 탭에 PDF를 열었어요 ✓</b><br>그 탭의 메뉴(⋮)에서 '공유' 또는 '인쇄'를 누르면 돼요.<button class="pdf-panel-x" data-pdf-close>닫기</button>`);
+}
+// ③ 브라우저 기본 다운로드 — Claude 저장 기능을 거치지 않음
+function directPdfNow(){
+  if(!pdfBlob) return;
+  try{
+    const url = URL.createObjectURL(pdfBlob);
+    const a = document.createElement("a"); a.href = url; a.download = PDF_NAME; a.rel = "noopener";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 60000);
+  }catch(err){}
+  pdfPanel(`<b>다운로드했어요 ✓</b><br>폰의 '다운로드'(내 파일) 폴더에 '환갑여행_동행수첩.pdf'로 저장돼요.<button class="pdf-panel-go alt" data-pdf-tab>🗂 새 탭에서 열기 (인쇄·공유)</button><button class="pdf-panel-x" data-pdf-close>닫기</button>`);
+}
+document.addEventListener("click", (e)=>{
+  if(e.target.closest("[data-pdf-save]")){ savePdfNow(); return; }
+  if(e.target.closest("[data-pdf-share]")){ sharePdfNow(); return; }
+  if(e.target.closest("[data-pdf-direct]")){ directPdfNow(); return; }
+  if(e.target.closest("[data-pdf-view]")){ viewPdfPages(); return; }
+  if(e.target.closest("[data-pdf-tab]")){ openPdfTab(); return; }
+  if(e.target.closest("[data-pdf-view-close]")){ const v=document.getElementById("pdfViewer"); if(v) v.style.display="none"; showPdfReady(); return; }
+  if(e.target.closest("[data-pdf-close]")){ pdfPanelClose(); return; }
+});
+
+function refreshSchedule(){
+  const focusDate = renderDays();
+  autosizeMemosIn();
+  scrollToFocus(focusDate);
+  DAYS.forEach(d=>{ paintPhotoStrip(d.d); paintCustomRes(d.d); });
+}
+
+document.addEventListener("click",(e)=>{
+  if(e.target.id==="whoChip"){ openNameGate(); return; }
+  const pick = e.target.closest("[data-pick-name]");
+  if(pick){
+    setMyPerson(pick.dataset.pickName);
+    closeNameGate();
+    renderWhoChip();
+    refreshSchedule();
+    return;
+  }
+  if(e.target.id==="nameGateSkip"){
+    setMyPerson(ALL_ID);
+    closeNameGate();
+    renderWhoChip();
+    refreshSchedule();
+    return;
+  }
+});
+
+renderDday();
+renderBanner();
+renderPretrip();
+renderMidtrip();
+renderNameGate();
+renderWhoChip();
+refreshSchedule();
+if(!getMyPerson()) openNameGate();
+</script>
+
+</body></html>
